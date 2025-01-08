@@ -5,7 +5,7 @@
 //  Created by 김희은 on 1/9/25.
 //
 
-import SwiftUICore
+import SwiftUI
 
 extension Text {
     static func addFont(_ text: Text, font: FontFamiliy?) -> some View {
@@ -20,5 +20,10 @@ extension Text {
             .font(.custom(fontName, size: CGFloat(fontSize)))
             .tracking(CGFloat(letterSpacing))
             .lineSpacing(CGFloat(lineSpacingValue))
+            .padding(.vertical, CGFloat(lineSpacingValue))
     }
+}
+
+#Preview {
+    ContentView()
 }
