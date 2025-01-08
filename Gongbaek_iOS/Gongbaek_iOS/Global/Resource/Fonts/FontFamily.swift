@@ -16,9 +16,9 @@ enum PretendardFont: String {
 
 struct FontFamiliy {
     let fontName: PretendardFont
-    let fontSize: Float
-    let lineHeight: Float
-    let letterSpacing: Float
+    let fontSize: CGFloat
+    let lineHeight: CGFloat
+    let letterSpacing: CGFloat
 }
 
 extension FontFamiliy {

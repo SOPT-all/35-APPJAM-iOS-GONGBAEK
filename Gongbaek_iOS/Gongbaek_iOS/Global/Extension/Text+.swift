@@ -17,10 +17,10 @@ extension Text {
         let lineSpacingValue = lineHeight - fontSize
         
         return text
-            .font(.custom(fontName, size: CGFloat(fontSize)))
-            .tracking(CGFloat(letterSpacing))
-            .lineSpacing(CGFloat(lineSpacingValue))
-            .padding(.vertical, CGFloat(lineSpacingValue))
+            .font(.custom(fontName, size: fontSize))
+            .tracking(letterSpacing)
+            .lineSpacing(lineSpacingValue)
+            .padding(.vertical, lineSpacingValue)
     }
 }
 
