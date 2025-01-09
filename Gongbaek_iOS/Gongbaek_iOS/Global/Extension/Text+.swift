@@ -8,22 +8,7 @@
 import SwiftUI
 
 extension Text {
-    static func addFont(_ text: Text, font: FontFamiliy?) -> some View {
-        let fontName = font?.fontName.rawValue ?? "Pretendard-Regular"
-        let fontSize = font?.fontSize ?? 16
-        let lineHeight = font?.lineHeight ?? 0
-        let letterSpacing = font?.letterSpacing ?? 0
-        
-        let lineSpacingValue = lineHeight - fontSize
-        
-        return text
-            .font(.custom(fontName, size: fontSize))
-            .tracking(letterSpacing)
-            .lineSpacing(lineSpacingValue)
-            .padding(.vertical, lineSpacingValue)
+    func font(_ font: FontFamily) -> some View {
+        self.applyFont(font)
     }
-}
-
-#Preview {
-    ContentView()
 }
