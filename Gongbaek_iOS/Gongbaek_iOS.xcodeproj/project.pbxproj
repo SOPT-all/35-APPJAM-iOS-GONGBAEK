@@ -19,7 +19,7 @@
 		954A49362D2DC3C400FD6964 /* Exceptions for "Gongbaek_iOS" folder in "Gongbaek_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Network/.gitkeep,
+				Network/Service/DTO/Filling/.gitkeep,
 				Presentation/Home/View/.gitkeep,
 				Presentation/Home/ViewModel/.gitkeep,
 			);
@@ -155,6 +155,8 @@
 /* Begin XCBuildConfiguration section */
 		954A49172D2DA7AF00FD6964 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 954A490D2D2DA7AE00FD6964 /* Gongbaek_iOS */;
+			baseConfigurationReferenceRelativePath = Global/Setting/Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
