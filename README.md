@@ -10,7 +10,7 @@
 
 | <img src="https://github.com/user-attachments/assets/8b9dc184-e1a5-4f52-9646-25761cfb477b" width="70"> | <img src="https://github.com/user-attachments/assets/18387c98-5373-4385-aad6-bebc106545ee" width="70"> | <img src="https://github.com/user-attachments/assets/e0111bb9-16f6-4944-8070-b4398df6b85b" width="70"> |
 | --- | --- | --- |
-| <img src="https://github.com/user-attachments/assets/d0bb256f-2946-4f3e-af8e-28dd9fa830a3" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/5e9d39db-d0a0-4882-aa52-a1bc9e277e72" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/0deef439-9180-4455-a106-4ce533b84495" width="200" align="center"> |
+| <img src="https://github.com/user-attachments/assets/d0bb256f-2946-4f3e-af8e-28dd9fa830a3" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/5e9d39db-d0a0-4882-aa52-a1bc9e277e72" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/573017d2-e831-4e94-ae0b-17de85d097ce" width="200" align="center"> |
 | <p align="center">`스플래시/온보딩`<br>`홈`</p> | <p align="center">`나의 채움`<br>`모임 등록하기`<br>`채우기`</p> | <p align="center">`채우기 상세 페이지`<br>`모임방`</p> |
 
 ![GitFlow](https://github.com/user-attachments/assets/ba29713d-cb5a-445b-a406-9e828e40df13)
