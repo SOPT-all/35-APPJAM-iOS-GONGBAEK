@@ -1,8 +1,9 @@
 # 35-APPJAM-iOS-GONGBAEK
 공강을 백배 즐기는 방법!<br>
-
-`수정 예정 공사중임 나가!`
-
+```bash
+대학생들의 공강 시간을 활용하여 새로운 만남을 가질 수 있는 서비스 “공백”입니다
+공백은 수업시간표가 아닌 공강 시간표를 활용합니다!
+```
 ![AboutUs](https://github.com/user-attachments/assets/cbb5db02-d14d-4583-991b-47a541ec9252)
 여러분의 공백을 채워줄 iOS 개발자입니다!
 김가네 공주들~
@@ -34,7 +35,40 @@
 ![Code Convention](https://github.com/user-attachments/assets/3d5a45fc-7e8a-4cc8-90fb-1414b5aa7480)
 
 ![Foldering](https://github.com/user-attachments/assets/3ae66a52-cf04-4a16-9375-23e2e02d48b9)
-
+```bash
+├── 📁 Application
+│   ├── Gongbaek_iOSApp
+├── 📁 Global
+│   ├── 🗂️ UserDefault
+│   ├── 🗂️ Protocols
+│   ├── 🗂️ Extensions
+│   ├── 🗂️ Literals
+│   │   ├── String
+│   ├── 🗂️ Components
+│   │   ├── 🗂️ Button
+│   │   ├── 🗂️ Bar
+│   │   ├── 🗂️ TextField
+│   │   ├── 🗂️ ...
+│   ├── 🗂️ Resources
+│   │   ├── Font
+│   │   ├── Assets
+│   ├── 🗂️ Settings
+│   │   ├── Info.plist
+│   │   ├── Configurations
+│   │   │   ├── Development
+│   │   │   ├── Config
+├── 📁 Network
+│   ├── 🗂️ View1
+│   │   ├── View1API
+│   │   ├── View1Service
+│   ├── 🗂️ Base
+├── 📁 Presentation
+│   ├── 🗂️ View1
+│   │   ├── 🗂️ Model
+│   │   ├── 🗂️ View
+│   │   │   ├── 🗂️ Cell
+│   │   ├── 🗂️ ViewModel
+```
 
 
 ![iOS Archive](https://github.com/user-attachments/assets/71d5ddc8-7032-4bd4-b0c7-3ec5bbd50ddf)
