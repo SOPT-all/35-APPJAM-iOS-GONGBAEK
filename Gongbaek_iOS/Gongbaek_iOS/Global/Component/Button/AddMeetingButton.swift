@@ -14,10 +14,9 @@ struct AddMeetingButton: View {
         Button(action: {
             onClick?()
         }) {
-            // TODO: 아이콘 변경
-            Image(.sample)
+            Image(.icPlus24)
                 .resizable()
-                .foregroundColor(.mainOrange)
+                .foregroundColor(.grayWhite)
                 .frame(width: 24, height: 24)
         }
         .frame(width: 64, height: 64)

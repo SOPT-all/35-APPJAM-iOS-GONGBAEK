@@ -31,7 +31,7 @@ struct CoverImageButton: View {
                 Rectangle()
                     .fill(Color.black.opacity(0.3))
                     .cornerRadius(4)
-                Image(systemName: "checkmark.circle.fill")
+                Image(.icCheckFill24)
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.orange)
@@ -43,7 +43,7 @@ struct CoverImageButton: View {
 }
 
 #Preview {
-    CoverImageButton(image: "sample", isClicked: false)
+    CoverImageButton(image: "sample", isClicked: true)
         .frame(width: 109, height: 109)
 }
 

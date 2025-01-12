@@ -20,8 +20,7 @@ struct CounterButton: View {
         Button(action: {
             onClick?()
         }) {
-            // TODO: 아이콘 변경
-            Image(systemName: state == .increase ? "plus.circle" : "minus.circle")
+            Image(state == .increase ? .icPlusOrange18 : .icMinusOrange18)
                 .resizable()
                 .foregroundColor(.mainOrange)
                 .frame(width: 18, height: 18)

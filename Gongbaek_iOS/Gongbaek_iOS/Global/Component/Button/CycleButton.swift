@@ -18,8 +18,7 @@ struct CycleButton: View {
                 Text(isClicked ? "한번 봐요" : "모든 주기")
                     .font(.pretendard(.caption1_m_13))
                     .foregroundColor(isClicked ? .grayWhite : .gray10)
-                //TODO: 아이콘 변경
-                Image(.sample)
+                Image(.icArrowBottom18)
                     .resizable()
                     .renderingMode(.template)
                     .foregroundColor(isClicked ? .gray04 : .gray06)

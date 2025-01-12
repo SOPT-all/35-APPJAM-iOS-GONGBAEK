@@ -12,13 +12,11 @@ struct ToggleButton: View {
     
     var body: some View {
         ZStack {
-            // 배경
             RoundedRectangle(cornerRadius: 20)
                 .fill(isOn ? .mainOrange : .gray06)
                 .frame(width: 42, height: 24)
                 .animation(.easeInOut(duration: 0.2), value: isOn)
             
-            // 스위치 동그라미
             Circle()
                 .fill(.white)
                 .frame(width: 18, height: 18)

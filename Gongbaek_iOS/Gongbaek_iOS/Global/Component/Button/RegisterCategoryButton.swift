@@ -18,7 +18,7 @@ enum CategoryImageState: Int, CaseIterable {
     //TODO: 일러스트 이미지 추가
     var categoryImage: String {
         switch self {
-        case .study: return ""
+        case .study: return "sample"
         case .dining: return ""
         case .sport: return ""
         case .networking: return ""
