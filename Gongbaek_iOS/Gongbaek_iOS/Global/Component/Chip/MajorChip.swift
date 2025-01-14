@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-enum ObjectState {
+enum ViewType {
     case ownerProfile
     case suggestedUserProfile
 }
 
 struct MajorChip: View {
     let major: String
-    let targetObject: ObjectState
+    let targetObject: ViewType
     
     var body: some View {
         Text(major)

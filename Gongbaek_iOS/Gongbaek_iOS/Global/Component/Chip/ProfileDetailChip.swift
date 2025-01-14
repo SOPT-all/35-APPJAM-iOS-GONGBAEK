@@ -7,25 +7,18 @@
 
 import SwiftUI
 
-enum ProfileDetailState {
-    case grade
-    case MBTI
-}
-
 struct ProfileDetailChip: View {
-    let detailCategory: ProfileDetailState
+    let detailCategory: String
     
     var body: some View {
-        HStack {
-            Text(detailCategory == .grade ? "학번/학년" : "MBTI")
-                .pretendardFont(.caption2_m_12)
-                .foregroundStyle(.mainOrange)
-                .padding(.horizontal, 6)
-                .padding(.vertical, 1)
-                .background(
-                    RoundedRectangle(cornerRadius: 4)
+        Text(detailCategory)
+            .pretendardFont(.caption2_m_12)
+            .foregroundStyle(.mainOrange)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 1)
+            .background(
+                RoundedRectangle(cornerRadius: 4)
                     .fill(.grayWhite)
-                )
-        }
+            )
     }
 }

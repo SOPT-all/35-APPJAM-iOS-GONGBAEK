@@ -22,7 +22,6 @@
 				Global/Component/Bar/.gitkeep,
 				Global/Component/BottomSheet/.gitkeep,
 				Global/Component/Box/.gitkeep,
-				Global/Component/Chip/.gitkeep,
 				Global/Component/List/.gitkeep,
 				Global/Component/Modal/.gitkeep,
 				Global/Component/Others/.gitkeep,
