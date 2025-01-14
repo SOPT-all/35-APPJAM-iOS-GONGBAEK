@@ -55,7 +55,7 @@ extension FontFamily {
     static let caption1_m_13 = FontFamily(fontName: .medium, fontSize: 13, lineHeight: 18, letterSpacing: -0.5)
     static let caption1_r_13 = FontFamily(fontName: .regular, fontSize: 13, lineHeight: 18, letterSpacing: -0.5)
     
-    static let caption1_b_12 = FontFamily(fontName: .bold, fontSize: 12, lineHeight: 18, letterSpacing: -0.5)
-    static let caption1_m_12 = FontFamily(fontName: .medium, fontSize: 12, lineHeight: 18, letterSpacing: -0.5)
-    static let caption1_r_12 = FontFamily(fontName: .regular, fontSize: 12, lineHeight: 18, letterSpacing: -0.5)
+    static let caption2_b_12 = FontFamily(fontName: .bold, fontSize: 12, lineHeight: 18, letterSpacing: -0.5)
+    static let caption2_m_12 = FontFamily(fontName: .medium, fontSize: 12, lineHeight: 18, letterSpacing: -0.5)
+    static let caption2_r_12 = FontFamily(fontName: .regular, fontSize: 12, lineHeight: 18, letterSpacing: -0.5)
 }
