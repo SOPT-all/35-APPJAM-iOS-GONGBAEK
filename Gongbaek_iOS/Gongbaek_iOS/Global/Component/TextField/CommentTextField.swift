@@ -10,7 +10,7 @@ import SwiftUI
 struct CommentTextField: View {
     @State private var writeComment: String = ""
     @State private var textFieldHeight: CGFloat = 48
-    @State var sendButtonTapped: (() -> Void)?
+    var sendButtonTapped: (() -> Void)?
     
     var body: some View {
         ZStack(alignment: .bottom) {
