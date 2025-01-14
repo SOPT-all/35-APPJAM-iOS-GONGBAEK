@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		954A4A282D32777800FD6964 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 954A4A272D32777800FD6964 /* Moya */; };
+		954A4A2B2D3277F100FD6964 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 954A4A2A2D3277F100FD6964 /* Lottie */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		954A490B2D2DA7AE00FD6964 /* Gongbaek_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gongbaek_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -17,11 +22,12 @@
 				Global/Component/Bar/.gitkeep,
 				Global/Component/BottomSheet/.gitkeep,
 				Global/Component/Box/.gitkeep,
+				Global/Component/Chip/.gitkeep,
 				Global/Component/List/.gitkeep,
 				Global/Component/Modal/.gitkeep,
 				Global/Component/Others/.gitkeep,
 				Global/Component/TextField/.gitkeep,
-				Network/.gitkeep,
+				Network/Service/DTO/Filling/.gitkeep,
 				Presentation/Home/View/.gitkeep,
 				Presentation/Home/ViewModel/.gitkeep,
 			);
@@ -45,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954A4A282D32777800FD6964 /* Moya in Frameworks */,
+				954A4A2B2D3277F100FD6964 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +95,8 @@
 			);
 			name = Gongbaek_iOS;
 			packageProductDependencies = (
+				954A4A272D32777800FD6964 /* Moya */,
+				954A4A2A2D3277F100FD6964 /* Lottie */,
 			);
 			productName = Gongbaek_iOS;
 			productReference = 954A490B2D2DA7AE00FD6964 /* Gongbaek_iOS.app */;
@@ -116,6 +126,10 @@
 			);
 			mainGroup = 954A49022D2DA7AE00FD6964;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				954A4A262D32777800FD6964 /* XCRemoteSwiftPackageReference "Moya" */,
+				954A4A292D3277F100FD6964 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 954A490C2D2DA7AE00FD6964 /* Products */;
 			projectDirPath = "";
@@ -149,6 +163,8 @@
 /* Begin XCBuildConfiguration section */
 		954A49172D2DA7AF00FD6964 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 954A490D2D2DA7AE00FD6964 /* Gongbaek_iOS */;
+			baseConfigurationReferenceRelativePath = Global/Setting/Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -346,6 +362,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		954A4A262D32777800FD6964 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		954A4A292D3277F100FD6964 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		954A4A272D32777800FD6964 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 954A4A262D32777800FD6964 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		954A4A2A2D3277F100FD6964 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 954A4A292D3277F100FD6964 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 954A49032D2DA7AE00FD6964 /* Project object */;
 }
