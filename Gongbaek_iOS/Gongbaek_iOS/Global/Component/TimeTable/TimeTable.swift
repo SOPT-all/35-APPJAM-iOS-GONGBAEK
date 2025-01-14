@@ -49,9 +49,10 @@ struct TimeTable: View {
             
             ForEach(WeekDay.allCases.indices, id: \.self) { dayIndex in
                 Text(WeekDay.allCases[dayIndex].rawValue)
-                    .frame(minWidth: 60, maxWidth: .infinity, minHeight: 24)
+                    .frame(minWidth: 62, maxWidth: .infinity, minHeight: 24)
                     .font(.system(size: 12, weight: .regular))
-                    .background(Color.white)
+                    .foregroundStyle(selectedDay == WeekDay.allCases[dayIndex] ? Color.white : Color.gray06)
+                    .background(selectedDay == WeekDay.allCases[dayIndex] ? Color.gray09 : Color.white)
             }
             
             // 두번째 행부터: 시간 + 셀
