@@ -18,3 +18,22 @@ enum GroupChipState {
         case closed
     }
 }
+
+extension GroupChipState {
+    // 배경색
+    var backgroundColor: Color {
+        switch self {
+        case .recruiting(let recruitingState):
+            switch recruitingState {
+            case .recruiting:
+                return .gray08
+            case .recruited:
+                return .gray06
+            case .closed:
+                return .gray02
+            }
+        case .category, .weekly:
+            return .gray01
+        }
+    }
+}
