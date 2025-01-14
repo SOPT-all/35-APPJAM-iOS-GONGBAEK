@@ -2,7 +2,7 @@
 공강을 백배 즐기는 방법!<br>
 ```bash
 대학생들의 공강 시간을 활용하여 새로운 만남을 가질 수 있는 서비스 “공백”입니다
-공백은 수업시간표가 아닌 공강 시간표를 활용합니다!
+공백은 수업 시간표가 아닌 공강 시간표를 활용합니다!
 ```
 ![AboutUs](https://github.com/user-attachments/assets/cbb5db02-d14d-4583-991b-47a541ec9252)
 여러분의 공백을 채워줄 iOS 개발자입니다!
@@ -10,7 +10,7 @@
 
 | <img src="https://github.com/user-attachments/assets/8b9dc184-e1a5-4f52-9646-25761cfb477b" width="70"> | <img src="https://github.com/user-attachments/assets/18387c98-5373-4385-aad6-bebc106545ee" width="70"> | <img src="https://github.com/user-attachments/assets/e0111bb9-16f6-4944-8070-b4398df6b85b" width="70"> |
 | --- | --- | --- |
-| <img src="https://github.com/user-attachments/assets/d0bb256f-2946-4f3e-af8e-28dd9fa830a3" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/5e9d39db-d0a0-4882-aa52-a1bc9e277e72" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/d0bb256f-2946-4f3e-af8e-28dd9fa830a3" width="200" align="center"> |
+| <img src="https://github.com/user-attachments/assets/ff37a073-d210-417f-96f5-db3a5f9c48a1" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/5e9d39db-d0a0-4882-aa52-a1bc9e277e72" width="200" align="center"> | <img src="https://github.com/user-attachments/assets/573017d2-e831-4e94-ae0b-17de85d097ce" width="200" align="center"> |
 | <p align="center">`스플래시/온보딩`<br>`홈`</p> | <p align="center">`나의 채움`<br>`모임 등록하기`<br>`채우기`</p> | <p align="center">`채우기 상세 페이지`<br>`모임방`</p> |
 
 ![GitFlow](https://github.com/user-attachments/assets/ba29713d-cb5a-445b-a406-9e828e40df13)
@@ -33,35 +33,36 @@
 
 
 ![Code Convention](https://github.com/user-attachments/assets/3d5a45fc-7e8a-4cc8-90fb-1414b5aa7480)
+[🧩 공백 Code Convention](https://www.notion.so/Code-Convention-5a9c6a4435e0441d9b84ad289aa11660?pvs=4)
 
 ![Foldering](https://github.com/user-attachments/assets/3ae66a52-cf04-4a16-9375-23e2e02d48b9)
 ```bash
 ├── 📁 Application
 │   ├── Gongbaek_iOSApp
 ├── 📁 Global
-│   ├── 🗂️ UserDefault
-│   ├── 🗂️ Protocols
-│   ├── 🗂️ Extensions
-│   ├── 🗂️ Literals
+│   ├── 🗂️ Protocol
+│   ├── 🗂️ Extension
+│   ├── 🗂️ Literal
 │   │   ├── String
 │   ├── 🗂️ Components
 │   │   ├── 🗂️ Button
 │   │   ├── 🗂️ Bar
 │   │   ├── 🗂️ TextField
 │   │   ├── 🗂️ ...
-│   ├── 🗂️ Resources
+│   ├── 🗂️ Resource
 │   │   ├── Font
 │   │   ├── Assets
-│   ├── 🗂️ Settings
+│   ├── 🗂️ Setting
 │   │   ├── Info.plist
 │   │   ├── Configurations
 │   │   │   ├── Development
 │   │   │   ├── Config
 ├── 📁 Network
-│   ├── 🗂️ View1
-│   │   ├── View1API
-│   │   ├── View1Service
+│   ├── 🗂️ Service
+│   │   ├── DTO
+│   │   ├── TargetType
 │   ├── 🗂️ Base
+│   ├── 🗂️ Environment
 ├── 📁 Presentation
 │   ├── 🗂️ View1
 │   │   ├── 🗂️ Model
