@@ -17,7 +17,7 @@ struct ProfileDetailChip: View {
     
     var body: some View {
         HStack {
-            Text(detailCategory == .MBTI ? "MBTI" : "학번/학년")
+            Text(detailCategory == .grade ? "학번/학년" : "MBTI")
                 .pretendardFont(.caption2_m_12)
                 .foregroundStyle(.mainOrange)
                 .padding(.horizontal, 6)
