@@ -31,7 +31,7 @@ struct CommentTextField: View {
                 guard !writeComment.isEmpty else { return }
                 writeComment = ""
             }) {
-                Image("ic_send_24")
+                Image(.icSend24)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24, height: 24)
