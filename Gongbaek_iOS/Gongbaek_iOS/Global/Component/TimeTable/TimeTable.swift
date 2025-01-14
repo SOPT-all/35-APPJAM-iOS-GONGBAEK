@@ -13,12 +13,12 @@ struct TimeTableModel {
     let endTime: Double
 }
 
-enum WeekDay: Int {
-    case MON
-    case TUE
-    case WED
-    case THU
-    case FRI
+enum WeekDay: String, CaseIterable {
+    case MON = "월"
+    case TUE = "화"
+    case WED = "수"
+    case THU = "목"
+    case FRI = "금"
 }
 
 struct CellIdentifier: Hashable {
@@ -33,11 +33,9 @@ enum TimeTableCellState {
 }
 
 struct TimeTable: View {
-    let days = ["월", "화", "수", "목", "금"]
     let hours = Array(stride(from: 9, through: 17.5, by: 0.5))
     let columns = [GridItem(.fixed(24), spacing: 1)]
     + Array(repeating: GridItem(.flexible(), spacing: 1), count: 5)
-    
     @State var selectedDay: WeekDay
     @State var selectedCells: Set<CellIdentifier> = []
     @Binding var freeTimeTable: [TimeTableModel]
@@ -49,8 +47,8 @@ struct TimeTable: View {
                 .fill(Color.white)
                 .frame(minWidth: 24, minHeight: 24)
             
-            ForEach(days, id: \.self) { day in
-                Text(day)
+            ForEach(WeekDay.allCases.indices, id: \.self) { dayIndex in
+                Text(WeekDay.allCases[dayIndex].rawValue)
                     .frame(minWidth: 60, maxWidth: .infinity, minHeight: 24)
                     .font(.system(size: 12, weight: .regular))
                     .background(Color.white)
@@ -63,7 +61,7 @@ struct TimeTable: View {
                     .font(.system(size: 12, weight: .regular))
                     .background(Color.white)
                 
-                ForEach(days.indices, id: \.self) { dayIndex in
+                ForEach(WeekDay.allCases.indices, id: \.self) { dayIndex in
                     let cellIdentifier = CellIdentifier(hourIndex: hours[hourIndex], dayIndex: dayIndex)
                     let cellState = cellState(cellIdentifier)
                     
@@ -97,11 +95,11 @@ struct TimeTable: View {
         let hour = cellIdentifier.hourIndex
         let day = cellIdentifier.dayIndex
 
-        for timeSlot in freeTimeTable {
-            if day == timeSlot.weekDay.rawValue &&
-               hour >= timeSlot.startTime &&
-               hour < timeSlot.endTime {
-                return selectedDay.rawValue == day ? .active : .freeTime
+        for timeCell in freeTimeTable {
+            if WeekDay.allCases[day] == timeCell.weekDay &&
+               hour >= timeCell.startTime &&
+               hour < timeCell.endTime {
+                return selectedDay == WeekDay.allCases[day] ? .active : .freeTime
             }
         }
         return .inactive
