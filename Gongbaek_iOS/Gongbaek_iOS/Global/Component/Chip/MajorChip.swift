@@ -9,21 +9,22 @@ import SwiftUI
 
 enum UserMajorStatus {
     case ownerProfile
-    case matchedUserProfile
+    case suggestedUserProfile
 }
 
 struct MajorChip: View {
     let major: String
+    let user: UserMajorStatus
     
     var body: some View {
         Text(major)
             .pretendardFont(.caption2_m_12)
-            .foregroundStyle(.grayWhite)
+            .foregroundStyle(user == .ownerProfile ? .grayWhite : .mainOrange)
             .padding(.horizontal, 6)
             .padding(.vertical, 1)
             .background(
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(.gray09)
+                    .fill(user == .ownerProfile ? .gray09 :.subOrange)
             )
     }
 }
