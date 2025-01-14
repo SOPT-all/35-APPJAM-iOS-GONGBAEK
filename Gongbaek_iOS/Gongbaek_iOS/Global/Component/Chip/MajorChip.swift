@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum UserMajorStatus {
+    case ownerProfile
+    case matchedUserProfile
+}
+
 struct MajorChip: View {
     let major: String
     
