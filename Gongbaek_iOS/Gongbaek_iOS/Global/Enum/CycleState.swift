@@ -36,5 +36,4 @@ extension CycleState {
         case .weekly, .once: return .grayWhite
         }
     }
-    
 }

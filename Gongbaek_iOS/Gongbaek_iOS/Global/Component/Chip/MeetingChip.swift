@@ -16,7 +16,6 @@ struct MeetingChip: View {
             .foregroundColor(state.textColor)
             .padding(.horizontal, 4)
             .padding(.vertical, 1)
-            .padding(.horizontal, 4)
             .background(state.backgroundColor)
             .cornerRadius(2)
     }
@@ -30,5 +29,4 @@ struct MeetingChip: View {
     MeetingChip(state: .category(.networking))
     MeetingChip(state: .weekly(true))
     MeetingChip(state: .weekly(false))
-    
 }
