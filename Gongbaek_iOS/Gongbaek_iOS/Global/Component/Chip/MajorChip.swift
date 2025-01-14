@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: TODO - enum 분리 예정
+
 enum ViewType {
     case ownerProfile
     case suggestedUserProfile

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: TODO - Model 분리 예정
+
 struct Apply {
     var isActivated: Bool
     var currentPeopleCount: Int
@@ -31,6 +33,9 @@ struct ApplyBar: View {
             Button(action: {
                 print("applyButtonIsTapped")
             }) {
+                
+                // MARK: TODO - Component 대체 예정
+                
                 Text(apply.buttonText)
                     .pretendardFont(.title2_sb_18)
                     .padding(.vertical, 16)
