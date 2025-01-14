@@ -36,4 +36,21 @@ extension GroupChipState {
             return .gray01
         }
     }
+    
+    // 글자색
+    var textColor: Color {
+        switch self {
+        case .recruiting(let recruitingState):
+            switch recruitingState {
+            case .recruiting, .recruited:
+                return .grayWhite
+            case .closed:
+                return .gray07
+            }
+        case .category:
+            return .mainOrange
+        case .weekly(let isWeekly):
+            return isWeekly ? .subGreen : .subBlue
+        }
+    }
 }
