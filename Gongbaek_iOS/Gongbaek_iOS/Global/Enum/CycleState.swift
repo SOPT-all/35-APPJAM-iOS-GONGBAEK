@@ -10,7 +10,10 @@ import SwiftUI
 enum CycleState {
     case all
     case weekly
-    case once
+    case once 
+}
+
+extension CycleState {
     
     var titleText: String {
         switch self {
@@ -33,4 +36,5 @@ enum CycleState {
         case .weekly, .once: return .grayWhite
         }
     }
+    
 }

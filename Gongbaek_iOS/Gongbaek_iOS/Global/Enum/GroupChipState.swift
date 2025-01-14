@@ -20,7 +20,7 @@ enum GroupChipState {
 }
 
 extension GroupChipState {
-    // 배경색
+    
     var backgroundColor: Color {
         switch self {
         case .recruiting(let recruitingState):
@@ -37,7 +37,6 @@ extension GroupChipState {
         }
     }
     
-    // 글자색
     var textColor: Color {
         switch self {
         case .recruiting(let recruitingState):
