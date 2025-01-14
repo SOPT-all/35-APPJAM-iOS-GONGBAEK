@@ -12,7 +12,7 @@ struct ProfileDetailChip: View {
     
     var body: some View {
         HStack {
-            Text(detailCategory)
+            Text(detailCategory) {
                 .pretendardFont(.caption2_m_12)
                 .foregroundStyle(.mainOrange)
                 .padding(.horizontal, 6)
@@ -21,6 +21,7 @@ struct ProfileDetailChip: View {
                     RoundedRectangle(cornerRadius: 4)
                     .fill(.grayWhite)
                 )
+            }
         }
     }
 }
