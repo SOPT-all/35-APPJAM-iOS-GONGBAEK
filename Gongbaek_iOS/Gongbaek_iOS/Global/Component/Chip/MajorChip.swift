@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-enum UserMajorStatus {
+enum ObjectStatus {
     case ownerProfile
     case suggestedUserProfile
 }
 
 struct MajorChip: View {
     let major: String
-    let user: UserMajorStatus
+    let targetObject: ObjectStatus
     
     var body: some View {
         Text(major)
             .pretendardFont(.caption2_m_12)
-            .foregroundStyle(user == .ownerProfile ? .grayWhite : .mainOrange)
+            .foregroundStyle(targetObject == .ownerProfile ? .grayWhite : .mainOrange)
             .padding(.horizontal, 6)
             .padding(.vertical, 1)
             .background(
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(user == .ownerProfile ? .gray09 :.subOrange)
+                    .fill(targetObject == .ownerProfile ? .gray09 :.subOrange)
             )
     }
 }
