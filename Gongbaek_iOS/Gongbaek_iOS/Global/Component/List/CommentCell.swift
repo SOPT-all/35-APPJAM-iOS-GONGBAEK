@@ -54,7 +54,7 @@ struct DeleteButton: View {
         Button (action: {
             print("DeleteButtonTapped")
         }) {
-            Image("ic__comment_x_20")
+            Image(.icCommentX20)
                 .resizable()
                 .frame(width: 20, height: 20)
                 .foregroundStyle(.gray05)
