@@ -46,7 +46,6 @@ struct ApplyBar: View {
                             .fill(apply.isActivated ? .mainOrange : .gray03)
                     )
             }
-            .cornerRadius(6)
         }
         .padding(.vertical, 20)
         .padding(.horizontal, 16)
