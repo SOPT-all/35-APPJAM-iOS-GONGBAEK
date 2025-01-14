@@ -53,4 +53,23 @@ extension GroupChipState {
             return isWeekly ? .subGreen : .subBlue
         }
     }
+    
+    var titleText: String {
+        switch self {
+        case .recruiting(let recruitingState):
+            switch recruitingState {
+            case .recruiting:
+                return "모집중"
+            case .recruited:
+                return "모집마감"
+            case .closed:
+                return "마감"
+            }
+        case .category(let categoryState):
+            return categoryState.catogoryName
+        case .weekly(let isWeekly):
+            return isWeekly ? "매주 보기" : "한번 보기"
+        }
+    }
+}
 }
