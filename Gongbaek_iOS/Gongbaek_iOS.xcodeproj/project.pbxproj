@@ -26,7 +26,6 @@
 				Global/Component/List/.gitkeep,
 				Global/Component/Modal/.gitkeep,
 				Global/Component/Others/.gitkeep,
-				Global/Component/TextField/.gitkeep,
 				Network/Service/DTO/Filling/.gitkeep,
 				Presentation/Home/View/.gitkeep,
 				Presentation/Home/ViewModel/.gitkeep,
