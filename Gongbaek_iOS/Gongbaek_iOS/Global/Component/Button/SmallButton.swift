@@ -29,5 +29,5 @@ struct SmallButton: View {
 }
 
 #Preview {
-    SmallButton(text: "Button", isSelected: true)
+    SmallButton(text: "Button", isClicked: true)
 }
