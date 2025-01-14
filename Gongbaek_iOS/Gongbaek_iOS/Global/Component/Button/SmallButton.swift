@@ -9,19 +9,19 @@ import SwiftUI
 
 struct SmallButton: View {
     var text: String
-    var isClicked: Bool
-    var onClick: (() -> Void)?
+    var isTapped: Bool
+    var onTap: (() -> Void)?
     
     var body: some View {
         Button(action: {
-            onClick?()
+            onTap?()
         }) {
             Text(text)
-                .font(isClicked ? .pretendard(.body1_b_16) : .pretendard(.body1_m_16))
+                .font(isTapped ? .pretendard(.body1_b_16) : .pretendard(.body1_m_16))
                 .padding(.vertical, 14)
                 .frame(maxWidth: .infinity)
-                .background(isClicked ? .subOrange : .gray01)
-                .foregroundColor(isClicked ? .mainOrange : .gray07)
+                .background(isTapped ? .subOrange : .gray01)
+                .foregroundColor(isTapped ? .mainOrange : .gray07)
                 .clipShape(RoundedRectangle(cornerRadius: 6))
         }
         .buttonStyle(PlainButtonStyle())
@@ -29,5 +29,5 @@ struct SmallButton: View {
 }
 
 #Preview {
-    SmallButton(text: "Button", isClicked: true)
+    SmallButton(text: "Button", isTapped: true)
 }

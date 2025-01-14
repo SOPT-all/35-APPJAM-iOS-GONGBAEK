@@ -14,11 +14,11 @@ enum CounterButtonState {
 
 struct CounterButton: View {
     var state: CounterButtonState
-    var onClick: (() -> Void)?
+    var onTap: (() -> Void)?
     
     var body: some View {
         Button(action: {
-            onClick?()
+            onTap?()
         }) {
             Image(state == .increase ? .icPlusOrange18 : .icMinusOrange18)
                 .resizable()
@@ -31,7 +31,6 @@ struct CounterButton: View {
         .clipShape(RoundedRectangle(cornerRadius: 6))
     }
 }
-
 
 #Preview {
     CounterButton(state: .increase)

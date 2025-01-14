@@ -9,22 +9,21 @@ import SwiftUI
 
 struct CategoryButton: View {
     var text: String
-    var isClicked: Bool
-    var onClick: (() -> Void)?
-    
+    var isSelcted: Bool
+    var onTap: (() -> Void)?
     
     var body: some View {
         Button(action: {
-            onClick?()
+            onTap?()
         }) {
             Text(text)
-                .font(isClicked ? .pretendard(.caption1_sb_13) : .pretendard(.caption1_m_13))
+                .font(isSelcted ? .pretendard(.caption1_sb_13) : .pretendard(.caption1_m_13))
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(isClicked ? .gray09 : .grayWhite)
-                .foregroundColor(isClicked ? .gray01 : .gray06)
+                .background(isSelcted ? .gray09 : .grayWhite)
+                .foregroundColor(isSelcted ? .gray01 : .gray06)
                 .overlay(
-                    isClicked
+                    isSelcted
                         ? nil
                         : RoundedRectangle(cornerRadius: 4)
                         .stroke(.gray02, lineWidth: 1)
@@ -36,5 +35,5 @@ struct CategoryButton: View {
 }
 
 #Preview {
-    CategoryButton(text: "카테고리", isClicked: false)
+    CategoryButton(text: "카테고리", isSelcted: false)
 }

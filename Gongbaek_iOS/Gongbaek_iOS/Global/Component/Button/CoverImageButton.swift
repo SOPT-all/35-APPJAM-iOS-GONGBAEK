@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CoverImageButton: View {
     var image: String
-    var isClicked: Bool
-    var onClick: (() -> Void)?
+    var isSelected: Bool
+    var onTap: (() -> Void)?
     
     var body: some View {
         ZStack {
             GeometryReader { geometry in
                 Button(action: {
-                    onClick?()
+                    onTap?()
                 }) {
                     Image(image)
                         .resizable()
@@ -27,7 +27,7 @@ struct CoverImageButton: View {
                 .clipShape(RoundedRectangle(cornerRadius: 4))
             }
             
-            if isClicked {
+            if isSelected {
                 Rectangle()
                     .fill(Color.black.opacity(0.3))
                     .cornerRadius(4)
@@ -43,7 +43,7 @@ struct CoverImageButton: View {
 }
 
 #Preview {
-    CoverImageButton(image: "sample", isClicked: true)
+    CoverImageButton(image: "sample", isSelected: true)
         .frame(width: 109, height: 109)
 }
 

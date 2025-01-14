@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct AddMeetingButton: View {
-    var onClick: (() -> Void)?
+    var onTap: (() -> Void)?
 
     var body: some View {
         Button(action: {
-            onClick?()
+            onTap?()
         }) {
             Image(.icPlus24)
                 .resizable()

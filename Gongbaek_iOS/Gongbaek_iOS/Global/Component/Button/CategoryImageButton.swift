@@ -39,14 +39,14 @@ enum CategoryImageState: Int, CaseIterable {
     }
 }
 
-struct RegisterCategoryButton: View {
+struct CategoryImageButton: View {
     var category: CategoryImageState
-    var isClicked: Bool
-    var onClick: (() -> Void)?
+    var isSelected: Bool
+    var onTap: (() -> Void)?
     
     var body: some View {
         Button(action: {
-            onClick?()
+            onTap?()
         }) {
             VStack(spacing: 10) {
                 Image(category.categoryImage)
@@ -60,12 +60,11 @@ struct RegisterCategoryButton: View {
             .padding(.vertical, 15)
         }
         .buttonStyle(PlainButtonStyle())
-        .background(isClicked ? .subOrange : .gray01)
+        .background(isSelected ? .subOrange : .gray01)
         .clipShape(RoundedRectangle(cornerRadius: 5))
     }
 }
 
-
 #Preview {
-    RegisterCategoryButton(category: .study, isClicked: true)
+    CategoryImageButton(category: .study, isSelected: true)
 }

@@ -37,7 +37,7 @@ enum CycleState {
 
 struct CycleButton: View {
     var state: CycleState
-    var onClick: (() -> Void)?
+    var onTap: (() -> Void)?
 
     var body: some View {
         Button(action: {
