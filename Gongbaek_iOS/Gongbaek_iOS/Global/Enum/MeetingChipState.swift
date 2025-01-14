@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum GroupChipState {
+enum MeetingChipState {
     case recruiting(RecruitingState)
     case category(CategoryState)
     case weekly(Bool)
@@ -19,7 +19,7 @@ enum GroupChipState {
     }
 }
 
-extension GroupChipState {
+extension MeetingChipState {
     
     var backgroundColor: Color {
         switch self {
@@ -71,3 +71,4 @@ extension GroupChipState {
         }
     }
 }
+

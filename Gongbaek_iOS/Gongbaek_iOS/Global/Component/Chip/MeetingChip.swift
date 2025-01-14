@@ -1,5 +1,5 @@
 //
-//  GroupChip.swift
+//  MeetingChip.swift
 //  Gongbaek_iOS
 //
 //  Created by 김민서 on 1/14/25.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct GroupChip: View {
-    var state: GroupChipState
+struct MeetingChip: View {
+    var state: MeetingChipState
     
     var body: some View {
         Text(state.titleText)
@@ -23,12 +23,12 @@ struct GroupChip: View {
 }
 
 #Preview {
-    GroupChip(state: .recruiting(.recruiting))
-    GroupChip(state: .recruiting(.recruited))
-    GroupChip(state: .recruiting(.closed))
-    GroupChip(state: .category(.play))
-    GroupChip(state: .category(.networking))
-    GroupChip(state: .weekly(true))
-    GroupChip(state: .weekly(false))
+    MeetingChip(state: .recruiting(.recruiting))
+    MeetingChip(state: .recruiting(.recruited))
+    MeetingChip(state: .recruiting(.closed))
+    MeetingChip(state: .category(.play))
+    MeetingChip(state: .category(.networking))
+    MeetingChip(state: .weekly(true))
+    MeetingChip(state: .weekly(false))
     
 }
