@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum CounterButtonState {
-    case increase
-    case decrease
-}
-
 struct CounterButton: View {
     var state: CounterButtonState
     var onTap: (() -> Void)?
