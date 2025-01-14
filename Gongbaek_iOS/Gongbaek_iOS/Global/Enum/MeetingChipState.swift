@@ -65,7 +65,7 @@ extension MeetingChipState {
                 return "마감"
             }
         case .category(let categoryState):
-            return categoryState.catogoryName
+            return categoryState.categoryName
         case .weekly(let isWeekly):
             return isWeekly ? "매주 보기" : "한번 보기"
         }
