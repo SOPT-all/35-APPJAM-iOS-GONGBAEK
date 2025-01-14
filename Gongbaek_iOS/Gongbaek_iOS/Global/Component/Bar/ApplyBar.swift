@@ -21,11 +21,12 @@ struct ApplyBar: View {
         HStack(spacing: 16) {
             Text("\(apply.currentPeopleCount) / \(apply.maxPeopleCount) 명")
                 .pretendardFont(.title2_sb_18)
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
+                .padding(16)
                 .foregroundStyle(apply.isActivated ? .gray01 : .grayWhite)
-                .background(apply.isActivated ? .gray09 : .gray04)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
+                .background(
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(apply.isActivated ? .gray09 : .gray04)
+                )
             
             Button(action: {
                 print("applyButtonIsTapped")
