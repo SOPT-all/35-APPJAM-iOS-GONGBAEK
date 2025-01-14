@@ -34,9 +34,11 @@ struct ApplyBar: View {
                     .pretendardFont(.title2_sb_18)
                     .padding(.vertical, 16)
                     .frame(maxWidth: .infinity)
-                    .background(apply.isActivated ? .mainOrange : .gray03)
                     .foregroundStyle(.grayWhite)
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                    .background(
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill(apply.isActivated ? .mainOrange : .gray03)
+                    )
             }
             .cornerRadius(6)
         }
