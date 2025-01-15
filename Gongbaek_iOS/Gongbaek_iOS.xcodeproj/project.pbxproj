@@ -19,10 +19,8 @@
 		954A49362D2DC3C400FD6964 /* Exceptions for "Gongbaek_iOS" folder in "Gongbaek_iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Global/Component/Bar/.gitkeep,
 				Global/Component/BottomSheet/.gitkeep,
 				Global/Component/Box/.gitkeep,
-				Global/Component/List/.gitkeep,
 				Global/Component/Modal/.gitkeep,
 				Global/Component/Others/.gitkeep,
 				Network/Service/DTO/Filling/.gitkeep,
