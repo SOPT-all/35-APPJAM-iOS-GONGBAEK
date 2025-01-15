@@ -10,10 +10,11 @@ import SwiftUI
 struct BasicButton: View {
     let buttonText: String
     let buttonColor: Color
+    var onTap: (() -> Void)?
     
     var body: some View {
         Button(action: {
-            print("applyButtonIsTapped")
+            onTap?()
         }) {
             Text(buttonText)
                 .pretendardFont(.title2_sb_18)
