@@ -58,5 +58,5 @@ struct DeleteButton: View {
 }
 
 #Preview {
-    CommentsCell(comment: Comment(isOwner: true, isWriter: true, nickmane: "희은이", content: "난 로이임탄이랑 하기 시러시러 !", date: "12/27/12:05"))
+    CommentCell(comment: Comment(isOwner: true, isWriter: true, nickmane: "희은이", content: "난 로이임탄이랑 하기 시러시러 !", date: "12/27/12:05"))
 }
