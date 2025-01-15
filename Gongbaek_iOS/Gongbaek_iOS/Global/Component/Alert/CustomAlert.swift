@@ -66,9 +66,8 @@ struct CustomedAlert: View {
                     
                     alertType.isSubtitle ? SubtitleTextBox(text: alertData.subtitleText) : nil
                 }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 20)
-                .padding(.top, alertType.isSubtitle ? 8 : 0)
+                .padding(20)
+                .padding(.top, alertType.isSubtitle ? 8 : 0) // subtitle 유무에 따라, VStack에 Padding 추가 삽입
                 
                 HStack(alignment: .center, spacing: 10) {
                     alertType.isCloseButton ? CloseButton(closeButtonText: alertData.closeButtonText) : nil
@@ -89,8 +88,8 @@ struct CustomedAlert: View {
                 }
                 .padding(.horizontal, 20)
             }
-            .padding(.bottom, 20)
             .padding(.top, 34)
+            .padding(.bottom, 20)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.green)
