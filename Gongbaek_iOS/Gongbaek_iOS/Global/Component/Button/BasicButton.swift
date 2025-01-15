@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct BasicButton: View {
-    let buttonText: String
-    let buttonColor: Color
+    let text: String
+    var isActivated: Bool
     var onTap: (() -> Void)?
     
     var body: some View {
         Button(action: {
             onTap?()
         }) {
-            Text(buttonText)
+            Text(text)
                 .pretendardFont(.title2_sb_18)
                 .lineLimit(1)
                 .padding(16)
                 .frame(maxWidth: .infinity)
-                .foregroundStyle(.grayWhite) // textColor 변경될 일 없음
+                .foregroundStyle(.grayWhite)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(buttonColor)
+                        .fill(isActivated ? .mainOrange : .gray03)
                 )
         }
     }
 }
 
 #Preview {
-    BasicButton(buttonText: "다음으로", buttonColor: .gray10)
-    BasicButton(buttonText: "next", buttonColor: .gray09)
-    BasicButton(buttonText: "ㅋㅋ민서02020201010202101020아아아아아아ㅏ앙", buttonColor: .mainOrange)
+    BasicButton(text: "다음으로", isActivated: true)
+    BasicButton(text: "next", isActivated: false)
 }
