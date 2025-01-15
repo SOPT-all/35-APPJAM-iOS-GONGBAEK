@@ -29,9 +29,9 @@ struct CustomTextEditor: View {
                     .padding(EdgeInsets(top: 7, leading: 10, bottom: 0, trailing: 4))
                     .scrollContentBackground(.hidden)
                     .background(Color.clear)
-                    .onChange(of: text) { newValue in
-                        if newValue.count > maxCharacterCount {
-                            text = String(newValue.prefix(maxCharacterCount))
+                    .onChange(of: text) { [text] in
+                        if text.count > maxCharacterCount {
+                            self.text = String(text.prefix(maxCharacterCount))
                         }
                     }
                     .focused($isEditing)
