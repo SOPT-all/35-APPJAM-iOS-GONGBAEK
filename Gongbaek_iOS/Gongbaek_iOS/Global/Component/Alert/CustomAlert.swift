@@ -51,9 +51,9 @@ struct CustomedAlert: View {
             BackgroundBlack()
             
             VStack (alignment: .center, spacing: 0) {
-                Image("profileImage")
+                Image("이미지 변경 예정") // MARK: - TODO: 이미지 수정
                     .resizable()
-                    .background(.gray02)
+                    .background(.gray02) // MARK: - TODO: 이미지 수정 시 삭제
                     .frame(width: 178, height: 178)
                     .padding(.horizontal, 20)
                 
