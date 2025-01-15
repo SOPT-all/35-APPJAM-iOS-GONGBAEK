@@ -26,7 +26,7 @@ struct OwnerProfileBox: View {
                     .resizable()
                     .frame(width: 80, height: 80)
                     .background(.gray04) // MARK: - 이미지 삽입 시 삭제
-                    .foregroundStyle(.mainOrange)
+                    .foregroundStyle(.mainOrange) // MARK: - 이미지 삽입 시 삭제
                 
                 VStack(alignment: .leading, spacing: 6) {
                     HStack(spacing: 6) {
@@ -34,7 +34,7 @@ struct OwnerProfileBox: View {
                             .pretendardFont(.body1_b_16)
                             .foregroundStyle(.grayBlack)
                         
-                        Image(sex == "MAN" ? "ic_male_20" : "ic_female_20")
+                        Image(sex == "MAN" ? .icMale20 : .icFemale20)
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundStyle(.gray06)
