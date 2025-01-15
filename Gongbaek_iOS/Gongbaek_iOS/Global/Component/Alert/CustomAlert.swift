@@ -39,11 +39,11 @@ extension AlertType {
 // MARK: - TODO: Model 분리
 
 struct AlertData {
-    let alertImage: String
-    let titleText: String
-    var subtitleText: String = ""
-    var grayButtonText: String = ""
-    let orangeButtonText: String
+    var alertImage: String = "person.fill"
+    var titleText: String = "title"
+    var subtitleText: String = "subtitle"
+    var grayButtonText: String = "close"
+    var orangeButtonText: String = "next"
     var onTapGrayButton: (() -> Void)?
     var onTapOrangeButton: (() -> Void)?
 }
