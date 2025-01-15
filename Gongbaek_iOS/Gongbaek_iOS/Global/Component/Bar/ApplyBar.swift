@@ -11,6 +11,7 @@ import SwiftUI
 
 struct Apply {
     var isActivated: Bool
+    var onTap: (() -> Void)?
     var currentPeopleCount: Int
     var maxPeopleCount: Int
     var buttonText: String
@@ -54,5 +55,5 @@ struct ApplyBar: View {
 }
 
 #Preview {
-    ApplyBar(apply: Apply(isActivated: true, currentPeopleCount: 3, maxPeopleCount: 4, buttonText: "엘렐레"))
+    ApplyBar(apply: Apply(isActivated: true, onTap: nil, currentPeopleCount: 3, maxPeopleCount: 4, buttonText: "엘렐레"))
 }
