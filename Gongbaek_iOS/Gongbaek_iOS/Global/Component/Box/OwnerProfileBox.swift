@@ -28,7 +28,7 @@ struct OwnerProfileBox: View {
                 .fill(.gray01)
             
             HStack(alignment: .center, spacing: 12) {
-                Image(systemName: "person")
+                Image(" ") // MARK: - TODO: 이미지 네이밍 수정
                     .resizable()
                     .frame(width: 80, height: 80)
                     .background(.gray04) // MARK: - TODO: 이미지 삽입 시 삭제

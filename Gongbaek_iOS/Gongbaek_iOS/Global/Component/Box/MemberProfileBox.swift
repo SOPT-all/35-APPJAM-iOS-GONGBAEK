@@ -15,11 +15,11 @@ struct MemberProfileBox: View {
     var body: some View {
         VStack(spacing: 6) {
             ZStack(alignment: .bottomLeading) {
-                Image("이름 넣기")
+                Image("이름 넣기") // MARK: - TODO: 이미지 네이밍 수정
                     .resizable()
                     .frame(width: 80, height: 80)
-                    .background(.gray04)
-                    .foregroundStyle(.mainOrange)
+                    .background(.gray04) // MARK: - TODO: 이미지 삽입 시 삭제
+                    .foregroundStyle(.mainOrange) // MARK: - TODO: 이미지 삽입 시 삭제
                     .overlay(
                         isOwner ? OwnerChip().padding(6) : nil,
                              alignment: .bottomLeading
