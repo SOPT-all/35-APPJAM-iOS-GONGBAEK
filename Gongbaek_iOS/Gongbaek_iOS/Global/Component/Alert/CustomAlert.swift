@@ -37,7 +37,7 @@ extension AlertType {
 struct AlertData {
     let alertImage: String
     let titleText: String
-    var subTitleText: String = ""
+    var subtitleText: String = ""
     var closeButtonText: String = ""
     let orangeButtonText: String
 }
@@ -66,14 +66,7 @@ struct CustomedAlert: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundStyle(.gray10)
                     
-                    Text(alertData.subTitleText)
-                        .pretendardFont(.body2_m_14)
-                        .lineLimit(nil)
-                        .frame(maxWidth: .infinity)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .foregroundStyle(.gray07)
-                        .padding(.vertical, 4)
+                    alertType.isSubtitle ? SubtitleText(text: alertData.subtitleText) : nil
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 20)
@@ -118,6 +111,20 @@ struct BackgroundBlack: View {
     }
 }
 
+struct SubtitleText: View {
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .pretendardFont(.body2_m_14)
+            .lineLimit(nil)
+            .frame(maxWidth: .infinity)
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
+            .foregroundStyle(.gray07)
+            .padding(.vertical, 4)
+    }
+}
 struct CloseButton: View {
     var closeButtonText: String
     
@@ -144,7 +151,7 @@ struct CloseButton: View {
         alertData: AlertData(
             alertImage: "profile.fill",
             titleText: "모임등록이완료되었다면믿으시겠습니까욥",
-            subTitleText: "아니요못믿겠고요 앙앙\n못하겠어요",
+            subtitleText: "아니요 모르겠고 내 뷰나 책입져 이자식아!!! 나 집에 갈래!!! 으악으악\n으악아악악!!!!",
             closeButtonText: "닫기",
             orangeButtonText: "다음으로"
         )
