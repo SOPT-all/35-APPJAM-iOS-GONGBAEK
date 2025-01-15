@@ -31,22 +31,7 @@ struct ApplyBar: View {
                         .fill(apply.isActivated ? .gray09 : .gray04)
                 )
             
-            Button(action: {
-                print("applyButtonIsTapped")
-            }) {
-                
-                // MARK: TODO - Component 대체 예정
-                
-                Text(apply.buttonText)
-                    .pretendardFont(.title2_sb_18)
-                    .padding(.vertical, 16)
-                    .frame(maxWidth: .infinity)
-                    .foregroundStyle(.grayWhite)
-                    .background(
-                        RoundedRectangle(cornerRadius: 6)
-                            .fill(apply.isActivated ? .mainOrange : .gray03)
-                    )
-            }
+            BasicButton(text: apply.buttonText, isActivated: true)
         }
         .padding(.vertical, 20)
         .padding(.horizontal, 16)
