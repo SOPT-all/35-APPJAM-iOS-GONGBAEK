@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProgressBar: View {
     @Binding var currentIndex: Int
-    var totalViews: Int
+    var totalViews: Int = 8
     var progressRatio: CGFloat {
         totalViews > 0 ? CGFloat(currentIndex + 1) / CGFloat(totalViews) : 0
     }
@@ -36,8 +36,8 @@ struct ProgressBar: View {
 #Preview {
     @Previewable @State var currentIndex = 1
     VStack(spacing: 16) {
-        ForEach(0..<6) { index in
-            ProgressBar(currentIndex: .constant(index), totalViews: 6)
+        ForEach(0..<8) { index in
+            ProgressBar(currentIndex: .constant(index))
         }
     }
 }

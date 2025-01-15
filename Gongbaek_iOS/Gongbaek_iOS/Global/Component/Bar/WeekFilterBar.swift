@@ -16,7 +16,7 @@ enum Day: String, CaseIterable {
     case fri = "금요일"
 }
 
-struct WeekCategoryBar: View {
+struct WeekFilterBar: View {
     @State private var selectedDay: Day = .all
     private let hStackSpacing = 5.0
     private let hStackPadding = 3.0
@@ -58,5 +58,5 @@ struct WeekCategoryBar: View {
 }
 
 #Preview {
-    WeekCategoryBar()
+    WeekFilterBar()
 }
