@@ -23,6 +23,7 @@ extension AlertType {
             return false
         }
     }
+    
     var isCloseButton: Bool {
         switch self {
         case .closeButton, .subtitleCloseButton:
@@ -64,6 +65,7 @@ struct CustomedAlert: View {
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundStyle(.gray10)
+                    
                     Text(alertData.subTitleText)
                         .pretendardFont(.body2_m_14)
                         .lineLimit(nil)
@@ -73,7 +75,8 @@ struct CustomedAlert: View {
                         .foregroundStyle(.gray07)
                         .padding(.vertical, 4)
                 }
-                .padding(.horizontal, 20)                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 20)
                 .padding(.top, alertType.isSubtitle ? 8 : 0)
                 
                 HStack(alignment: .center, spacing: 10) {
@@ -88,17 +91,30 @@ struct CustomedAlert: View {
                             .frame(maxWidth: .infinity)
                             .background(.mainOrange)
                             .foregroundStyle(.grayWhite)
-                            .clipShape(RoundedRectangle(cornerRadius: 6))
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 6)
+                            )
                     }
                 }
                 .padding(.horizontal, 20)
             }
             .padding(.bottom, 20)
             .padding(.top, 34)
-            .background(RoundedRectangle(cornerRadius: 10).fill(.green))
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.green)
+            )
             .padding(.horizontal, 42)
             .padding(.vertical, 236)
         }
+    }
+}
+
+struct BackgroundBlack: View {
+    var body: some View {
+        Rectangle()
+            .fill(.grayBlack.opacity(0.7))
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -115,16 +131,10 @@ struct CloseButton: View {
                 .padding(.horizontal, 21.5)
                 .foregroundStyle(.grayWhite)
                 .background(.gray08)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
+                .clipShape(
+                    RoundedRectangle(cornerRadius: 6)
+                )
         }
-    }
-}
-
-struct BackgroundBlack: View {
-    var body: some View {
-        Rectangle()
-            .fill(.grayBlack.opacity(0.7))
-            .edgesIgnoringSafeArea(.all)
     }
 }
 
