@@ -18,6 +18,8 @@ enum Day: String, CaseIterable {
 
 struct WeekCategoryBar: View {
     @State private var selectedDay: Day = .all
+    private let hStackSpacing = 5.0
+    private let hStackPadding = 3.0
     
     var body: some View {
         GeometryReader { geometry in
@@ -25,47 +27,34 @@ struct WeekCategoryBar: View {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(.gray01)
                 
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(.white)
-                    .frame(width: buttonWidth(in: geometry) - 6, height: 34)
-                    .offset(x: sliderOffset(in: geometry))
-                    .animation(.easeInOut(duration: 0.2), value: selectedDay)
+                let totalWidth = geometry.size.width - hStackPadding * 2 - hStackSpacing * CGFloat(Day.allCases.count - 1)
+                /// 전체 버튼이 요일 버튼보다 내부 패딩이 좌우 2씩 작음
+                let extraSpace = 4.0
+                /// 전체 버튼에서 4만큼 줄었으므로 다른 버튼에 4를 균등하게 분배해야 함
+                let weekDayButtonWidth = (totalWidth + extraSpace) / CGFloat(Day.allCases.count)
+                let allButtonWidth = weekDayButtonWidth - extraSpace
                 
-                HStack(spacing: 0) {
+                HStack(spacing: hStackSpacing) {
                     ForEach(Day.allCases, id: \.self) { day in
                         Button(action: {
-                            withAnimation {
-                                selectedDay = day
-                            }
+                            selectedDay = day
                         }) {
                             Text(day.rawValue)
                                 .font(.pretendard(.caption1_sb_13))
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 36)
                                 .foregroundColor(selectedDay == day ? .mainOrange : .gray06)
                         }
+                        .frame(width: day == .all ? allButtonWidth : weekDayButtonWidth, height: 34)
+                        .background(selectedDay == day ? .white : .clear)
+                        .clipShape(RoundedRectangle(cornerRadius: 2))
+                        .animation(.easeInOut(duration: 0.2), value: selectedDay)
                     }
                 }
+                .padding(.horizontal, hStackPadding)
             }
         }
         .frame(height: 38)
-        .padding(.horizontal, 3)
+        .padding(.horizontal, 16)
     }
-
-}
-
-extension WeekCategoryBar {
-    
-    func buttonWidth(in geometry: GeometryProxy) -> CGFloat {
-        geometry.size.width / CGFloat(Day.allCases.count)
-    }
-    
-    func sliderOffset(in geometry: GeometryProxy) -> CGFloat {
-        let index = Day.allCases.firstIndex(of: selectedDay) ?? 0
-        let buttonWidth = geometry.size.width / CGFloat(Day.allCases.count)
-        return CGFloat(index) * buttonWidth - geometry.size.width / 2 + buttonWidth / 2
-    }
-    
 }
 
 #Preview {
