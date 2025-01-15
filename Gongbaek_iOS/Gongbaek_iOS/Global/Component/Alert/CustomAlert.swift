@@ -12,23 +12,23 @@ import SwiftUI
 enum AlertType {
     case basic
     case subtitle
-    case closeButton
-    case subtitleCloseButton
+    case grayButton
+    case subtitleGrayButton
 }
 
 extension AlertType {
     var isSubtitle: Bool {
         switch self {
-        case .subtitle, .subtitleCloseButton:
+        case .subtitle, .subtitleGrayButton:
             return true
         default:
             return false
         }
     }
     
-    var isCloseButton: Bool {
+    var isGrayButton: Bool {
         switch self {
-        case .closeButton, .subtitleCloseButton:
+        case .grayButton, .subtitleGrayButton:
             return true
         default:
             return false
@@ -42,9 +42,10 @@ struct AlertData {
     let alertImage: String
     let titleText: String
     var subtitleText: String = ""
-    var closeButtonText: String = ""
+    var grayButtonText: String = ""
     let orangeButtonText: String
-    var onTap: (() -> Void)?
+    var onTapGrayButton: (() -> Void)?
+    var onTapOrangeButton: (() -> Void)?
 }
 
 struct CustomedAlert: View {
@@ -71,10 +72,10 @@ struct CustomedAlert: View {
                 .padding(.top, alertType.isSubtitle ? 8 : 0) // subtitle 유무에 따라, VStack에 Padding 추가 삽입
                 
                 HStack(alignment: .center, spacing: 10) {
-                    alertType.isCloseButton ? CloseButton(closeButtonText: alertData.closeButtonText) : nil
+                    alertType.isGrayButton ? GrayButton(buttonText: alertData.grayButtonText, buttonAction: alertData.onTapGrayButton) : nil
                     
                     Button(action: {
-                        alertData.onTap?()
+                        alertData.onTapOrangeButton?()
                     }) {
                         Text(alertData.orangeButtonText)
                             .pretendardFont(.title2_sb_18)
@@ -100,6 +101,9 @@ struct CustomedAlert: View {
         }
     }
 }
+
+
+// MARK: - 내부 Components
 
 struct BackgroundBlack: View {
     var body: some View {
@@ -138,14 +142,15 @@ struct SubtitleTextBox: View {
     }
 }
 
-struct CloseButton: View {
-    var closeButtonText: String
+struct GrayButton: View {
+    let buttonText: String
+    var buttonAction: (() -> Void)?
     
     var body: some View {
         Button(action: {
-            print("applyButtonIsTapped")
+            buttonAction?()
         }) {
-            Text(closeButtonText)
+            Text(buttonText)
                 .pretendardFont(.title2_sb_18)
                 .padding(.vertical, 16)
                 .padding(.horizontal, 21.5)
@@ -160,14 +165,15 @@ struct CloseButton: View {
 
 #Preview {
     CustomedAlert(
-        alertType: AlertType.subtitleCloseButton,
+        alertType: AlertType.subtitleGrayButton,
         alertData: AlertData(
             alertImage: "sample",
             titleText: "모임등록이완료되었다면믿으시겠습니까욥",
             subtitleText: "아니요 모르겠고 내 뷰나 책입져 이자식아!!! 나 집에 갈래!!! 으악으악\n으악아악악!!!!",
-            closeButtonText: "닫기",
+            grayButtonText: "닫기",
             orangeButtonText: "다음으로",
-            onTap: nil
+            onTapGrayButton: nil,
+            onTapOrangeButton: nil
         )
     )
 }
