@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentTextField: View {
-    @State private var writeComment: String = ""
+    @State private var comment: String = ""
     @State private var textFieldHeight: CGFloat = 48
     @State var sendButtonTapped: (() -> Void)?
     
@@ -16,7 +16,7 @@ struct CommentTextField: View {
         HStack(alignment: .bottom, spacing: 4) {
             TextField(
                 "댓글을 입력해주세요.",
-                text: $writeComment,
+                text: $comment,
                 axis: .vertical
             )
             .pretendardFont(.body1_m_16)
@@ -28,8 +28,8 @@ struct CommentTextField: View {
             
             Button(action: {
                 sendButtonTapped?() // 깡통
-                guard !writeComment.isEmpty else { return }
-                writeComment = ""
+                guard !comment.isEmpty else { return }
+                comment = ""
             }) {
                 Image(.icSend24)
                     .resizable()

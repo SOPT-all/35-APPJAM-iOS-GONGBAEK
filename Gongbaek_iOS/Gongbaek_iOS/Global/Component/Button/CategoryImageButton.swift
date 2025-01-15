@@ -7,40 +7,8 @@
 
 import SwiftUI
 
-enum CategoryImageState: Int, CaseIterable {
-    case study = 1
-    case dining = 2
-    case sport = 3
-    case networking = 4
-    case play = 5
-    case others = 6
-    
-    //TODO: 일러스트 이미지 추가
-    var categoryImage: String {
-        switch self {
-        case .study: return "sample"
-        case .dining: return ""
-        case .sport: return ""
-        case .networking: return ""
-        case .play: return ""
-        case .others: return ""
-        }
-    }
-    
-    var catogoryName: String {
-        switch self {
-        case .study: return "스터디"
-        case .dining: return "식사"
-        case .sport: return "운동/산책"
-        case .networking: return "네트워킹"
-        case .play: return "놀기"
-        case .others: return "기타"
-        }
-    }
-}
-
 struct CategoryImageButton: View {
-    var category: CategoryImageState
+    var category: CategoryState
     var isSelected: Bool
     var onTap: (() -> Void)?
     
