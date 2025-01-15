@@ -8,10 +8,10 @@
 import SwiftUI
 
 enum AlertType {
+    case basic
     case subtitle
     case closeButton
     case subtitleCloseButton
-    case basic
 }
 
 extension AlertType {
