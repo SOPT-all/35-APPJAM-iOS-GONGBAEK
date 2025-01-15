@@ -113,6 +113,8 @@ struct CustomCalendar: View {
                         .onTapGesture {
                             if !isWeekend(weekday) && !isPast {
                                 clickedCurrentMonthDates = date
+                                print("Clicked date: \(date)") // 클릭된 날짜 출력
+
                             }
                         }
                     } else if let prevMonthDate = Calendar.current.date(
