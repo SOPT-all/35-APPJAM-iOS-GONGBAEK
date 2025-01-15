@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - TODO: enum 분리
+
 enum AlertType {
     case basic
     case subtitle
@@ -33,6 +35,8 @@ extension AlertType {
         }
     }
 }
+
+// MARK: - TODO: Model 분리
 
 struct AlertData {
     let alertImage: String
