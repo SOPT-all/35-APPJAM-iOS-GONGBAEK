@@ -16,7 +16,7 @@ struct Comment {
     var date: String
 }
 
-struct CommentsCell: View {
+struct CommentCell: View {
     let comment: Comment
     
     var body: some View {
@@ -24,21 +24,16 @@ struct CommentsCell: View {
             HStack(alignment: .center, spacing: 6) {
                 Text(comment.nickmane)
                     .pretendardFont(.body1_sb_16)
-                
                 comment.isOwner ? OwnerChip() : nil
-                
                 Spacer()
-                
                 comment.isWriter ? DeleteButton() : nil
-                
             }
             .foregroundColor(.grayBlack)
             .padding(.bottom, 8)
-            
+
             Text(comment.content)
                 .pretendardFont(.body2_r_14)
                 .foregroundColor(.gray08)
-            
                 .padding(.bottom, 4)
             
             Text(comment.date)
