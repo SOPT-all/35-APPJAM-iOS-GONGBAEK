@@ -101,16 +101,17 @@ struct CustomCalendar: View {
                         let clicked = clickedCurrentMonthDates == date
                         let isToday = date.formattedCalendarDayDate == today.formattedCalendarDayDate
                         let weekday = Calendar.current.component(.weekday, from: date)
+                        let isPast = date < today
                         
                         CalendarCell(
                             day: day,
                             clicked: clicked,
                             isToday: isToday,
                             isCurrentMonthDay: true,
-                            isDisabled: isWeekend(weekday)
+                            isDisabled: isWeekend(weekday) || isPast
                         )
                         .onTapGesture {
-                            if !isWeekend(weekday) {
+                            if !isWeekend(weekday) && !isPast {
                                 clickedCurrentMonthDates = date
                             }
                         }
@@ -120,8 +121,7 @@ struct CustomCalendar: View {
                         to: previousMonth()
                     ) {
                         let day = Calendar.current.component(.day, from: prevMonthDate)
-                  
-                        
+                      
                         CalendarCell(
                             day: day,
                             isDisabled: true
