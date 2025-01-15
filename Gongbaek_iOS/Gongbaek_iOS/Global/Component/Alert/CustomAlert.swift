@@ -51,22 +51,16 @@ struct CustomedAlert: View {
             BackgroundBlack()
             
             VStack (alignment: .center, spacing: 0) {
-                Image("이미지 변경 예정") // MARK: - TODO: 이미지 수정
+                Image(alertData.alertImage) // MARK: - TODO: 이미지 수정
                     .resizable()
                     .background(.gray02) // MARK: - TODO: 이미지 수정 시 삭제
                     .frame(width: 178, height: 178)
                     .padding(.horizontal, 20)
                 
                 VStack(spacing: 0) {
-                    Text(alertData.titleText)
-                        .pretendardFont(.title2_sb_18)
-                        .lineLimit(nil)
-                        .frame(maxWidth: .infinity)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .foregroundStyle(.gray10)
+                    TitleTextBox(text: alertData.titleText)
                     
-                    alertType.isSubtitle ? SubtitleText(text: alertData.subtitleText) : nil
+                    alertType.isSubtitle ? SubtitleTextBox(text: alertData.subtitleText) : nil
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 20)
@@ -111,7 +105,21 @@ struct BackgroundBlack: View {
     }
 }
 
-struct SubtitleText: View {
+struct TitleTextBox: View {
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .pretendardFont(.title2_sb_18)
+            .lineLimit(nil)
+            .frame(maxWidth: .infinity)
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
+            .foregroundStyle(.gray10)
+    }
+}
+
+struct SubtitleTextBox: View {
     let text: String
     
     var body: some View {
@@ -125,6 +133,7 @@ struct SubtitleText: View {
             .padding(.vertical, 4)
     }
 }
+
 struct CloseButton: View {
     var closeButtonText: String
     
@@ -149,7 +158,7 @@ struct CloseButton: View {
     CustomedAlert(
         alertType: AlertType.subtitleCloseButton,
         alertData: AlertData(
-            alertImage: "profile.fill",
+            alertImage: "sample",
             titleText: "모임등록이완료되었다면믿으시겠습니까욥",
             subtitleText: "아니요 모르겠고 내 뷰나 책입져 이자식아!!! 나 집에 갈래!!! 으악으악\n으악아악악!!!!",
             closeButtonText: "닫기",
