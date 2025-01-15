@@ -93,7 +93,7 @@ struct CustomedAlert: View {
             .padding(.bottom, 20)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(.green)
+                    .fill(.grayWhite)
             )
             .padding(.horizontal, 42)
             .padding(.vertical, 236)
