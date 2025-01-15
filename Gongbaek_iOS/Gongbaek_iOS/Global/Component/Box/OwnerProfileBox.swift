@@ -22,7 +22,6 @@ struct OwnerProfileBox: View {
                 .fill(.gray01)
             
             HStack(alignment: .center, spacing: 12) {
-                
                 Image(systemName: "person")
                     .resizable()
                     .frame(width: 80, height: 80)
@@ -30,9 +29,7 @@ struct OwnerProfileBox: View {
                     .foregroundStyle(.mainOrange)
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    
                     HStack(spacing: 6) {
-                        
                         Text(nickname)
                             .pretendardFont(.body1_b_16)
                             .foregroundStyle(.grayBlack)
@@ -46,16 +43,12 @@ struct OwnerProfileBox: View {
                     MajorChip(major: schoolMajor, targetObject: .ownerProfile)
                     
                     HStack(spacing: 6) {
-                        
                         ProfileDetailChip(detailCategory: "학번/학년")
-//
                         Text("\(enterYear%100)학번 \(schoolGrade)학년")
                             .foregroundStyle(.gray08)
                             .pretendardFont(.caption2_m_12)
                             .padding(.trailing, 6)
-                        
                         ProfileDetailChip(detailCategory: "MBTI")
-                        
                         Text(mbti)
                             .foregroundStyle(.gray08)
                             .pretendardFont(.caption2_m_12)
