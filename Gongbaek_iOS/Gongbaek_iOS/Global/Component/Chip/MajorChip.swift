@@ -9,14 +9,14 @@ import SwiftUI
 
 // MARK: TODO - enum 분리 예정
 
-enum ViewType {
+enum MajorChipViewType {
     case ownerProfile
     case suggestedUserProfile
 }
 
 struct MajorChip: View {
     let major: String
-    let targetObject: ViewType
+    let targetObject: MajorChipViewType
     
     var body: some View {
         Text(major)
