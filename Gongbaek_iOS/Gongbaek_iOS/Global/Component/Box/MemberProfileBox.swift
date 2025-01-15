@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MemberProfileBlock: View {
+struct MemberProfileBox: View {
     var profileImage: Int
     var nickname: String
     var isOwner: Bool
@@ -34,5 +34,5 @@ struct MemberProfileBlock: View {
 }
 
 #Preview {
-    MemberProfileBlock(profileImage: 1, nickname: "희은이", isOwner: true)
+    MemberProfileBox(profileImage: 1, nickname: "희은이", isOwner: true)
 }
