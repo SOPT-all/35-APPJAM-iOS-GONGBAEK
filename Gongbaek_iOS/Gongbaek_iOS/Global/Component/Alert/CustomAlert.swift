@@ -44,6 +44,7 @@ struct AlertData {
     var subtitleText: String = ""
     var closeButtonText: String = ""
     let orangeButtonText: String
+    var onTap: (() -> Void)?
 }
 
 struct CustomedAlert: View {
@@ -73,7 +74,7 @@ struct CustomedAlert: View {
                     alertType.isCloseButton ? CloseButton(closeButtonText: alertData.closeButtonText) : nil
                     
                     Button(action: {
-                        print("applyButtonIsTapped")
+                        alertData.onTap?()
                     }) {
                         Text(alertData.orangeButtonText)
                             .pretendardFont(.title2_sb_18)
@@ -165,7 +166,8 @@ struct CloseButton: View {
             titleText: "모임등록이완료되었다면믿으시겠습니까욥",
             subtitleText: "아니요 모르겠고 내 뷰나 책입져 이자식아!!! 나 집에 갈래!!! 으악으악\n으악아악악!!!!",
             closeButtonText: "닫기",
-            orangeButtonText: "다음으로"
+            orangeButtonText: "다음으로",
+            onTap: nil
         )
     )
 }
