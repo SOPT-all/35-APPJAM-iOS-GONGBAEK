@@ -69,7 +69,7 @@ struct MeetingDetailSegmentControlBar: View {
                 isApply: $isApply
             )
         case .comment:
-            CommentView(commentData: $commentData)
+            CommentView(commentData: commentData)
         }
     }
 }

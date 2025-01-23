@@ -229,29 +229,15 @@ class AddMeetingViewModel: ObservableObject {
         }
     }
     
-    func postMeeting() {        
+    func postMeeting() {
         guard let selectedCoverIndex = selectedCoverIndex else {
             return
         }
         
-        let weekDate: String = selectedFormattedDate ?? ""
+        let requestData = makeMeetingModel() // ✅ 별도 메서드에서 Model 변환
 
-        print("🛠️ 최종 weekDate 값: \(weekDate)")
+        print("🛠️ 최종 weekDate 값: \(requestData.weekDate)")
 
-        let requestData = AddMeetingModel(
-            groupType: selectedCycle == .once ? "ONCE" : "WEEKLY",
-            weekDate: selectedFormattedDate ?? "" ,
-            weekDay: selectedWeekDay?.englishName ?? "MON",
-            startTime: selectedTimeRange.start,
-            endTime: selectedTimeRange.end,
-            category: selectedCategory?.serverName ?? "",
-            coverImg: selectedCoverIndex + 1,
-            location: location,
-            maxPeopleCount: maxPeopleCount,
-            groupTitle: title,
-            introduction: introduction
-        )
-        
         Providers.fillingProvider.request(target: .postMeeting(data: requestData), instance: BaseResponse<EmptyResponseDTO>.self) { response in
             print(requestData)
             DispatchQueue.main.async {
@@ -265,6 +251,23 @@ class AddMeetingViewModel: ObservableObject {
             }
         }
     }
+
+    private func makeMeetingModel() -> AddMeetingModel {
+        return AddMeetingModel(
+            groupType: selectedCycle == .once ? "ONCE" : "WEEKLY",
+            weekDate: selectedFormattedDate ?? "",
+            weekDay: selectedWeekDay?.englishName ?? "MON",
+            startTime: selectedTimeRange.start,
+            endTime: selectedTimeRange.end,
+            category: selectedCategory?.serverName ?? "",
+            coverImg: (selectedCoverIndex ?? 0) + 1, // ✅ `nil` 방지 처리
+            location: location,
+            maxPeopleCount: maxPeopleCount,
+            groupTitle: title,
+            introduction: introduction
+        )
+    }
+
 }
 
 

@@ -17,7 +17,7 @@ final class NavigationManager: ObservableObject {
     
     @Published var path = NavigationPath()
     @Published var presentedDestination: PresentableDestination? = nil
-    @Published var rootView: RootView = .signup
+    @Published var rootView: RootView = .tabBar
     
     func push<T: Hashable>(view: T) {
         path.append(view)

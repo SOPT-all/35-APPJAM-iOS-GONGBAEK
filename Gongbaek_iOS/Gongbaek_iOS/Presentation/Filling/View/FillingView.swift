@@ -21,7 +21,7 @@ struct FillingView: View {
                 Rectangle()
                     .fill(.gray01)
                     .frame(height: 8)
-                FillingList()
+                FillingList(meetings: viewModel.meeting)
                 Spacer()
             }
             

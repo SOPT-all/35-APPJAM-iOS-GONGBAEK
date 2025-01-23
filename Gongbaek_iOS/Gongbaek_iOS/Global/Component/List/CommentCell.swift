@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Comment {
-    var commentId = UUID()
-    var isGroupHost: Bool
-    var isWriter: Bool
-    var nickname: String
-    var body: String
-    var createdAt: String
-}
+//struct Comment {
+//    var commentId = UUID()
+//    var isGroupHost: Bool
+//    var isWriter: Bool
+//    var nickname: String
+//    var body: String
+//    var createdAt: String
+//}
 
 struct CommentCell: View {
     let comment: Comment //TODO: Binding 추가

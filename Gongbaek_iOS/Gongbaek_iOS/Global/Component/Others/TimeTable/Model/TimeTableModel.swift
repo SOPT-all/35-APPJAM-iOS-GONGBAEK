@@ -9,19 +9,19 @@ import Foundation
 
 struct TimeTableModel: Codable, Identifiable {
     let id: Int
-    let weekDate: String
+    let weekDay: String
     let startTime: Double
     let endTime: Double
 
     enum CodingKeys: String, CodingKey {
         case id = "idx"
-        case weekDate
+        case weekDay
         case startTime
         case endTime
     }
     
     var weekDayEnum: WeekDay? {
-        return WeekDay(rawValue: weekDate)
+        return WeekDay(rawValue: weekDay)
     }
 }
 

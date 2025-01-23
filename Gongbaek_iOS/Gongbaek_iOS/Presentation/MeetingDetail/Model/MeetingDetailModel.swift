@@ -23,41 +23,41 @@ struct MeetingDetailModel {
     var startTime: Double
     var endTime: Double
 }
-
-let dummymeetingDetailData: MeetingDetailModel = MeetingDetailModel(
-    groupId: 1,
-    groupType: "WEEKLY",
-    groupTitle: "공강팅",
-    location: "학교 정문",
-    status: "RECRUITING",
-    isHost: true,
-    isApply: true,
-    currentPeopleCount: 4,
-    maxPeopleCount: 6,
-    introduction: "복학하고 친구가 없어요 ㅠㅠ 밥 먹을 사람?",
-    category: "STUDY",
-    coverImg: 1,
-    weekDay: "MON",
-    weekDate: nil,
-    startTime: 10.5,
-    endTime: 12
-)
-
-let dummymeetingDateDetailData: MeetingDetailModel = MeetingDetailModel(
-    groupId: 1,
-    groupType: "ONCE",
-    groupTitle: "공강팅",
-    location: "학교 정문",
-    status: "RECRUITING",
-    isHost: true,
-    isApply: true,
-    currentPeopleCount: 4,
-    maxPeopleCount: 6,
-    introduction: "복학하고 친구가 없어요 ㅠㅠ 밥 먹을 사람?",
-    category: "STUDY",
-    coverImg: 1,
-    weekDay: nil,
-    weekDate: "2025-08-01",
-    startTime: 10.5,
-    endTime: 12
-)
+//
+//let dummymeetingDetailData: MeetingDetailModel = MeetingDetailModel(
+//    groupId: 1,
+//    groupType: "WEEKLY",
+//    groupTitle: "공강팅",
+//    location: "학교 정문",
+//    status: "RECRUITING",
+//    isHost: true,
+//    isApply: true,
+//    currentPeopleCount: 4,
+//    maxPeopleCount: 6,
+//    introduction: "복학하고 친구가 없어요 ㅠㅠ 밥 먹을 사람?",
+//    category: "STUDY",
+//    coverImg: 1,
+//    weekDay: "MON",
+//    weekDate: nil,
+//    startTime: 10.5,
+//    endTime: 12
+//)
+//
+//let dummymeetingDateDetailData: MeetingDetailModel = MeetingDetailModel(
+//    groupId: 1,
+//    groupType: "ONCE",
+//    groupTitle: "공강팅",
+//    location: "학교 정문",
+//    status: "RECRUITING",
+//    isHost: true,
+//    isApply: true,
+//    currentPeopleCount: 4,
+//    maxPeopleCount: 6,
+//    introduction: "복학하고 친구가 없어요 ㅠㅠ 밥 먹을 사람?",
+//    category: "STUDY",
+//    coverImg: 1,
+//    weekDay: nil,
+//    weekDate: "2025-08-01",
+//    startTime: 10.5,
+//    endTime: 12
+//)

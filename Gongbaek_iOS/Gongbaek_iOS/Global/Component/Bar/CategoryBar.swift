@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct CategoryBar: View {
     @ObservedObject var viewModel: FillingViewModel
     
@@ -19,6 +21,7 @@ struct CategoryBar: View {
                         isSelcted: viewModel.selectedCategory == category
                     ) {
                         viewModel.selectedCategory = category
+                        viewModel.getFillling() 
                     }
                 }
             }
@@ -26,6 +29,12 @@ struct CategoryBar: View {
         }
     }
 }
+
+#Preview {
+    let viewModel = FillingViewModel()
+    CategoryBar(viewModel: viewModel)
+}
+
 
 #Preview {
     let viewModel = FillingViewModel()

@@ -66,6 +66,10 @@ enum ProfileImageMap: String, CaseIterable {
     case profile3 = "profile_image_3"
     case profile4 = "profile_image_4"
     case profile5 = "profile_image_5"
+    
+    static func from(_ profileImg: Int) -> ProfileImageMap {
+        return ProfileImageMap(rawValue: "profile_image_\(profileImg)") ?? .profile0
+    }
 }
 
 enum GradeState: String, CaseIterable {

@@ -9,21 +9,21 @@ import SwiftUI
 
 struct AddMeetingTimeTable: View {
     @ObservedObject var viewModel: AddMeetingViewModel
-
+    
     private let hours = Array(stride(from: 9, through: 17.5, by: 0.5))
     private let columns = [GridItem(.fixed(24), spacing: 1)]
     + Array(repeating: GridItem(.flexible(), spacing: 1), count: 5)
-
+    
     @State var timeTable: [TimeTableModel]
     @State var selectedDay: WeekDay
     @Binding var selectedTimeRange: (start: Double, end: Double)
-
+    
     @State private var freeTimeIdToCellsMap: [Int: [TimeTableCellId]] = [:]
     @Binding var selectedCells: Set<TimeTableCellId>
     @State private var currentFreeTimeId: Int? = nil
-
+    
     var body: some View {
-   
+        
         LazyVGrid(columns: columns, spacing: 1) {
             dayHeader()
             
@@ -33,6 +33,7 @@ struct AddMeetingTimeTable: View {
             }
         }
         .background(.gray02)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(.gray02, lineWidth: 1)
@@ -106,7 +107,7 @@ struct AddMeetingTimeTable: View {
         /// 다만 17.5시에 해당하는 셀들은 최하단 셀이므로 0
         if hours[hourIndex] != 17.5 {
             if selectedCells.contains(cellId)
-            || cellState == .inactive {
+                || cellState == .inactive {
                 return -1
             } else {
                 return 0
@@ -119,8 +120,9 @@ struct AddMeetingTimeTable: View {
     /// 공강시간 id에 해당하는 셀들 딕셔너리 초기화
     private func initFreeTimeIdToCellsMap() {
         for freeTime in timeTable {
-            guard let dayIndex = WeekDay.allCases.firstIndex(of: WeekDay(rawValue: freeTime.weekDate) ?? .MON)
-            else { return }
+            guard let dayIndex = WeekDay.allCases.firstIndex(where: { $0.rawValue == freeTime.weekDay }) else {
+                return
+            }
             
             /// 공강시간 시작-종료 시간에 해당하는 모든 시간들을 30분 단위로 쪼갬
             /// -> 각 시간에 해당되는 cell id값  만들고 cells 배열에 저장
@@ -141,7 +143,7 @@ struct AddMeetingTimeTable: View {
     private func cellState(_ cellId: TimeTableCellId) -> TimeTableCellState {
         let isClassTime = freeTimeIdToCellsMap.values.contains { $0.contains(cellId) }
         let isSelectedDay = WeekDay.allCases[cellId.dayIndex] == selectedDay
-
+        
         if isClassTime {
             return .inactive
         } else if isSelectedDay {
@@ -171,24 +173,24 @@ struct AddMeetingTimeTable: View {
             selectedTimeRange = (start: 0, end: 0)
             return
         }
-
+        
         let selectedHours = selectedCells.map { $0.hourIndex }
         let start = selectedHours.min() ?? 0
         let end = selectedHours.max() ?? 0.5
-
+        
         selectedTimeRange = (start: start, end: end + 0.5)
         
         print("🕒 선택된 시간 범위 업데이트: \(selectedTimeRange.start) - \(selectedTimeRange.end)")
     }
-
+    
     private func fillConnectedCells(for cellId: TimeTableCellId) {
         let dayIndex = cellId.dayIndex
-
+        
         // 선택된 시간들 가져오기
         let selectedHours = selectedCells.filter { $0.dayIndex == dayIndex }.map { $0.hourIndex }
-
+        
         guard let minHour = selectedHours.min(), let maxHour = selectedHours.max() else { return }
-
+        
         // 최소~최대 시간 범위 안의 모든 셀을 자동 선택
         for hour in stride(from: minHour, to: maxHour + 0.5, by: 0.5) {
             let newCell = TimeTableCellId(hourIndex: hour, dayIndex: dayIndex)

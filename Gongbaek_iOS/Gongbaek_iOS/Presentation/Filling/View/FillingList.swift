@@ -10,7 +10,7 @@ import SwiftUI
 struct FillingList: View {
     @ObservedObject var viewModel = FillingViewModel()
     
-    let meetings: [Meeting] = dummyMeetings
+    let meetings: [Meeting]
     
     var body: some View {
         
@@ -30,46 +30,17 @@ struct FillingList: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
                 
-                VStack(alignment:.leading, spacing: 0) {
-                    ForEach(meetings, id: \.groupTitle) { meeting in
-                        MeetingInfoCell(meeting: meeting, state: .fill)
+                if meetings.isEmpty {
+                    FillingEmptyView()
+                        .padding(.top, 39)
+                } else {
+                    VStack(alignment:.leading, spacing: 0) {
+                        ForEach(meetings, id: \..groupTitle) { meeting in
+                            MeetingInfoCell(meeting: meeting, state: .fill)
+                        }
                     }
                 }
             }
         }
     }
 }
-
-
-#Preview {
-    FillingList()
-}
-
-let dummyMeetings: [Meeting] = [
-    Meeting(
-        groupId: 0,
-        status: "RECRUITING",
-        category: "STUDY",
-        coverImg: 1,
-        groupType: "WEEKLY",
-        groupTitle: "공강팅",
-        weekDay: "MON",
-        weekDate: nil,
-        startTime: 10.5,
-        endTime: 12.0,
-        location: "학교 정문"
-    ),
-    Meeting(
-        groupId: 2,
-        status: "RECRUITIED",
-        category: "PLAYING",
-        coverImg: 3,
-        groupType: "ONCE",
-        groupTitle: "공강팅",
-        weekDay: "TUE",
-        weekDate: "2025-12-11",
-        startTime: 10.5,
-        endTime: 12.0,
-        location: "학교 정문"
-    )
-]

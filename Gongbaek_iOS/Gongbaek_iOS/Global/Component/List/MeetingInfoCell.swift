@@ -39,23 +39,3 @@ struct MeetingInfoCell: View {
 }
 
 
-
-#Preview {
-    MeetingInfoCell(
-        meeting: Meeting(
-            groupId: 1,
-            status: "모집 중",
-            category: "스터디",
-            coverImg: 2,
-            groupType: "소규모",
-            groupTitle: "나는 개바보다 나랑 친구하고 싶으면 들어오덩가 ㅋㅋㅋ",
-            weekDay: "MON",
-            weekDate: nil,
-            startTime: 13.0,
-            endTime: 15.0,
-            location: "학교 정문인데 어쩌구 저쩌구 20자 넘으면"
-        ),
-        state: .myFill
-    )
-}
-

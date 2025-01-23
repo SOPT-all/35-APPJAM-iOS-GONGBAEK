@@ -11,8 +11,9 @@ struct MeetingRoomView: View {
     @StateObject var viewModel: MeetingRoomViewModel
     
     var body: some View {
-        VStack {
-            ScrollView {
+        VStack(spacing: 0) {
+            
+            ScrollView(.vertical) {
                 VStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(spacing: 5) {
@@ -23,7 +24,7 @@ struct MeetingRoomView: View {
                         .padding(.top, 18)
                         .padding(.bottom, 6)
                         
-                        Text(viewModel.meetingDetailData.groupTitle)
+                        Text(viewModel.groupTitle)
                             .pretendardFont(.title1_b_20)
                             .foregroundColor(.grayWhite)
                             .lineLimit(nil)
@@ -32,16 +33,16 @@ struct MeetingRoomView: View {
                         TimeBox(
                             state: .white,
                             text: Date.formattedDateAndStartEndTime(
-                                weekDay: WeekDay(viewModel.meetingDetailData.weekDay),
-                                weekDate: viewModel.meetingDetailData.weekDate,
-                                startTime: viewModel.meetingDetailData.startTime,
-                                endTime: viewModel.meetingDetailData.endTime
+                                weekDay: WeekDay(viewModel.weekDay),
+                                weekDate: viewModel.weekDate,
+                                startTime: viewModel.startTime,
+                                endTime: viewModel.endTime
                             ),
                             font: .pretendard(.caption2_r_12)
                         )
                         .padding(.bottom, 2)
                         
-                        LocationBox(state: .white, text: viewModel.meetingDetailData.location, font: .pretendard(.caption2_r_12))
+                        LocationBox(state: .white, text: viewModel.location, font: .pretendard(.caption2_r_12))
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 16)
@@ -50,6 +51,8 @@ struct MeetingRoomView: View {
                         Image("sample")
                             .resizable()
                             .scaledToFill()
+                            .frame(height: 232)
+                            .clipped()
                     )
                     
                     VStack(alignment: .leading, spacing: 0) {
@@ -72,8 +75,10 @@ struct MeetingRoomView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 6) {
-                            ForEach($viewModel.memberData.members.indices, id: \.self) { index in
-                                MemberProfileBox(memberData: $viewModel.memberData.members[index])
+                            if let memberData = viewModel.memberData {
+                                ForEach(memberData.members.indices, id: \.self) { index in
+                                    MemberProfileBox(memberData: memberData.members[index])
+                                }
                             }
                         }
                         .padding(.horizontal, 9)
@@ -84,16 +89,35 @@ struct MeetingRoomView: View {
                     divider()
                     
                     viewModel.isCommentDisabled ? CommentDisabledBox() : nil
-                    
-                    CommentList(
-                        commentCount: $viewModel.commentData.commentCount,
-                        comments: $viewModel.commentData.comments,
-                        isScrolled: false,
-                        onTapRefreshButton: nil
-                    )
                 }
+                
+                
+                CommentList(
+                    viewModel: viewModel,
+                    commentCount: viewModel.commentData?.commentCount ?? 0,
+                    comments: viewModel.commentData?.comments ?? [],
+                    isScrolled: false,
+                    onTapRefreshButton: nil
+                )
+                .frame(maxHeight: .infinity)
             }
-            viewModel.isCommentDisabled ? nil : CommentTextField()
+            
+            viewModel.isCommentDisabled ? nil : CommentTextField(viewModel: viewModel)
+        }
+        .onAppear {
+            print("onAppear called")
+            //TODO: Navigation 연결 시 수정
+            viewModel.getDetails(groupId: 7, groupType: "WEEKLY") { _ in
+                print("getDetails finished, meetingDetailData: \(String(describing: viewModel.meetingDetailData))")
+            }
+            
+            viewModel.getMembers(groupId: 7, groupType: "WEEKLY") { _ in
+                print("getMembers finished, memberData: \(String(describing: viewModel.memberData))")
+            }
+            
+            viewModel.getComments(groupId: 7, groupType: "WEEKLY") { _ in
+                print("getComments finished, memberData: \(String(describing: viewModel.commentData))")
+            }
         }
     }
     
