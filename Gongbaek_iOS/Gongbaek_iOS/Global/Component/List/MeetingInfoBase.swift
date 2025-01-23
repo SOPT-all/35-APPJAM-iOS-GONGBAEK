@@ -13,13 +13,11 @@ struct MeetingInfoBase: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            if let category = CategoryState(meeting.category) {
-                Image(category.getCoverImage(coverImgIndex: meeting.coverImg - 1)) 
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 102, height: 102)
-                    .cornerRadius(2)
-            }
+            Image(.sample)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 102, height: 102)
+                .cornerRadius(2)
             
             VStack(alignment: .leading, spacing: 6) {
                 
@@ -30,7 +28,7 @@ struct MeetingInfoBase: View {
                         CategoryState(meeting.category).map { .category($0) },
                         GroupState(meeting.groupType).map { .weekly($0) }
                     ].compactMap { $0 }
-                    
+
                     ForEach(states.indices, id: \.self) { index in
                         MeetingChip(state: states[index])
                     }
