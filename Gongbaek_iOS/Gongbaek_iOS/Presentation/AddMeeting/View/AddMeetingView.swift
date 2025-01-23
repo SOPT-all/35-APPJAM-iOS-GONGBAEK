@@ -10,7 +10,6 @@ import SwiftUI
 struct AddMeetingView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @StateObject var viewModel: AddMeetingViewModel
-    @State private var showAlert: Bool = false
     
     var body: some View {
         ZStack {
@@ -57,7 +56,6 @@ struct AddMeetingView: View {
                 
                 Spacer()
                 
-                // ✅ 버튼 동적 변경을 위한 변수 추가
                 let isLastStep = viewModel.currentIndex == viewModel.totalSteps - 1
                 
                 BasicButton(
@@ -66,7 +64,7 @@ struct AddMeetingView: View {
                 ) {
                     if isLastStep {
                         viewModel.postMeeting()
-                        showAlert = true
+                        viewModel.showAlert = true
                     } else {
                         viewModel.goToNextPage()
                     }
@@ -75,15 +73,15 @@ struct AddMeetingView: View {
                 .padding(.horizontal, 16)
             }
             
-            var image = viewModel.isSuccessGetData ? "img_success" : "img_fail"
+            let image = viewModel.isSuccessGetData ? "img_success" : "img_fail"
             
-            if showAlert {
+            if viewModel.showAlert {
                 CustomedAlert(
                     alertImage: image ,
                     titleText: viewModel.isSuccessGetData ? "모임 등록이 완료됐어요!" : "모임 등록에 실패했어요!",
                     orangeButtonText: "확인",
                     onTapOrangeButton: {
-                        showAlert = false
+                        viewModel.showAlert = false
                         if viewModel.isSuccessGetData {
                             //TODO: 나의 채움 탭으로 이동
                         }

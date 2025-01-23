@@ -13,8 +13,8 @@ enum MyFillingType: String, CaseIterable {
 }
 
 enum MyFillingCategory: String, CaseIterable {
-    case register = "REGISTER"
-    case apply = "APPLY"
+    case register
+    case apply
 }
 
 struct MyFillSegmentControlBar: View {

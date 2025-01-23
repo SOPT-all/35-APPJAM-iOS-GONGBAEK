@@ -63,6 +63,8 @@ class AddMeetingViewModel: ObservableObject {
         didSet { updateNextButtonState() }
     }
     
+    @Published var showAlert: Bool = false
+    
     @Published var isSuccessGetData: Bool = true
     
     init() {
