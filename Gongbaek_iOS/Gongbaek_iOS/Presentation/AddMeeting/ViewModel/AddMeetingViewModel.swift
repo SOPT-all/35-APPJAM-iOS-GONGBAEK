@@ -65,7 +65,7 @@ class AddMeetingViewModel: ObservableObject {
     
     @Published var showAlert: Bool = false
     
-    @Published var isSuccessGetData: Bool = true
+    @Published var isSuccessGetData: Bool = false
     
     init() {
         getTimeTable()
