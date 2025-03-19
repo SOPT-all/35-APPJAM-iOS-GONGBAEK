@@ -31,13 +31,13 @@ enum FillingDestination: Hashable, CaseIterable {
     }
 }
 
-enum MyFillingDestination: Hashable {
-    case myFilling
+enum MyPageDestination: Hashable {
+    case myPage
     
     @ViewBuilder
     func view() -> some View {
         switch self {
-        case .myFilling:
+        case .myPage:
             MyFillingView(viewModel: MyFillingViewModel())
         }
     }

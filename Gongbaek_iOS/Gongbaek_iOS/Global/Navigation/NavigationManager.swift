@@ -20,7 +20,7 @@ final class NavigationManager: ObservableObject {
     
     @Published var path = NavigationPath()
     @Published var presentedDestination: PresentableDestination? = nil
-    @Published var rootView: RootView = .onboarding
+    @Published var rootView: RootView = .tabBar
     @Published var selectedTab: TabBarState = .home
     
     func push<T: Hashable>(view: T) {
