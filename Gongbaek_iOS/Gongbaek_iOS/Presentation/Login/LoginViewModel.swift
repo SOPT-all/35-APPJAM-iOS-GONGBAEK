@@ -11,7 +11,9 @@ import AuthenticationServices
 class LoginViewModel: NSObject, ObservableObject {
     // 로그인 상태 확인할 변수
     @Published var isSignedIn = false
-
+    
+    var navigationManager: NavigationManager?
+    
     // Apple 로그인
     func handleAppleSignIn() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -30,17 +32,19 @@ class LoginViewModel: NSObject, ObservableObject {
             target: .postSignin(requestBody: requestBody),
             instance: BaseResponse<LoginResponseDTO>.self
         ) { response in
-            let data = response.data
-            if response.success {
-                self.isSignedIn = true
-                
-                // 통신 결과
-                print("👤 User ID: \(data?.userId ?? -1)")
-                print("🔑 Access Token: \(data?.accessToken ?? "없음")")
-                print("🔄 Refresh Token: \(data?.refreshToken ?? "없음")")
-            } else {
-                print("🚨서버 통신 실패: \(response.message ?? "알 수 없음")")
+            guard response.success, let data = response.data else {
+                print("🚨 서버 통신 실패: \(response.message ?? "알 수 없음")")
+                return
             }
+            
+            self.isSignedIn = true
+            
+            print("👤 User ID: \(String(describing: data.userId))")
+            print("🔑 Access Token: \(data.accessToken)")
+            print("🔄 Refresh Token: \(data.refreshToken)")
+            
+            // 키체인에 토큰 저장
+            TokenManager.shared.updateToken(data.accessToken, data.refreshToken)
             
             self.navigationManager?.rootView = .signup
         }
