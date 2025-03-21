@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4E118B2D8BB67A001D724F /* Config .xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0D4E118A2D8BB67A001D724F /* Config .xcconfig */; };
 		954A4A282D32777800FD6964 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 954A4A272D32777800FD6964 /* Moya */; };
 		954A4A2B2D3277F100FD6964 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 954A4A2A2D3277F100FD6964 /* Lottie */; };
 		95B4EAA12D418FAE0084923B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 95B4EAA02D418FAE0084923B /* KeychainAccess */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D4E118A2D8BB67A001D724F /* Config .xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config .xcconfig"; sourceTree = "<group>"; };
 		954A490B2D2DA7AE00FD6964 /* Gongbaek_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gongbaek_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -43,6 +45,7 @@
 			children = (
 				954A490D2D2DA7AE00FD6964 /* Gongbaek_iOS */,
 				954A490C2D2DA7AE00FD6964 /* Products */,
+				0D4E118A2D8BB67A001D724F /* Config .xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4E118B2D8BB67A001D724F /* Config .xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +148,7 @@
 /* Begin XCBuildConfiguration section */
 		954A49172D2DA7AF00FD6964 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 954A490D2D2DA7AE00FD6964 /* Gongbaek_iOS */;
-			baseConfigurationReferenceRelativePath = Global/Setting/Config.xcconfig;
+			baseConfigurationReference = 0D4E118A2D8BB67A001D724F /* Config .xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -209,8 +212,7 @@
 		};
 		954A49182D2DA7AF00FD6964 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 954A490D2D2DA7AE00FD6964 /* Gongbaek_iOS */;
-			baseConfigurationReferenceRelativePath = Global/Setting/Config.xcconfig;
+			baseConfigurationReference = 0D4E118A2D8BB67A001D724F /* Config .xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -270,6 +272,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gongbaek_iOS/Gongbaek_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -309,6 +312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gongbaek_iOS/Gongbaek_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
