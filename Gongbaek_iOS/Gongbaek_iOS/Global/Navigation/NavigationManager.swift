@@ -13,6 +13,7 @@ final class NavigationManager: ObservableObject {
     @Published var groupType: String? = nil
     
     enum RootView {
+        case login
         case onboarding
         case signup
         case tabBar
@@ -20,7 +21,7 @@ final class NavigationManager: ObservableObject {
     
     @Published var path = NavigationPath()
     @Published var presentedDestination: PresentableDestination? = nil
-    @Published var rootView: RootView = .onboarding
+    @Published var rootView: RootView = .login
     @Published var selectedTab: TabBarState = .home
     
     func push<T: Hashable>(view: T) {

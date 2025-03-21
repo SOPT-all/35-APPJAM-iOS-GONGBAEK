@@ -12,6 +12,8 @@ struct RootViewSwitcher: View {
 
     var body: some View {
         switch navigationManager.rootView {
+        case .login:
+            LoginView()
         case .onboarding:
             OnboardingView()
         case .signup:
