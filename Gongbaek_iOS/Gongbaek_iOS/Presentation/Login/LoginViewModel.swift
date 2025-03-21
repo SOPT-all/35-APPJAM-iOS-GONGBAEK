@@ -24,10 +24,10 @@ class LoginViewModel: NSObject, ObservableObject {
     
     // 로그인 서버 통신
     func postAuthorizationCode() {
-        let request = LoginRequestDTO(platform: "APPLE")
+        let requestBody = LoginRequestDTO(platform: PlatformType.APPLE.rawValue)
         
         Providers.sigininProvider.request(
-            target: .postSignin(requestBody: request),
+            target: .postSignin(requestBody: requestBody),
             instance: BaseResponse<LoginResponseDTO>.self
         ) { response in
             let data = response.data
