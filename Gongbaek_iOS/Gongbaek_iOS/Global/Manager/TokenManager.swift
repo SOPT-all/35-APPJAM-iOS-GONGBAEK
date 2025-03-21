@@ -13,7 +13,7 @@ final class TokenManager {
     static let shared = TokenManager()
     
     private let keychain = Keychain(service: I18N.Common.bundleID)
-
+    
     private init() {}
     
     var accessToken: String? {
@@ -28,9 +28,9 @@ final class TokenManager {
     
     var authCode: String?
     
-    var idToken: String? {
-        get { return keychain["idToken"] }
-        set { keychain["idToken"] = newValue }
+    var identityToken: String? {
+        get { return keychain["identityToken"] }
+        set { keychain["identityToken"] = newValue }
     }
     
     var platform: String? {
@@ -52,13 +52,18 @@ final class TokenManager {
     var accessTokenValue: String { return self.accessToken ?? "" }
     var refreshTokenValue: String { return self.refreshToken ?? "" }
     var authCodeValue: String { return self.authCode ?? "" }
-    var idTokenValue: String { return self.idToken ?? "" }
+    var identityTokenValue: String { return self.identityToken ?? "" }
     var platformValue: String { return self.platform ?? "" }
     var fcmTokenValue: String { return self.fcmToken ?? "" }
     var appleEmailValue: String { return self.appleEmail ?? "" }
 }
 
 extension TokenManager {
+    
+    func updateIdentityToken(identityToken: String?) {
+        self.identityToken = identityToken
+    }
+    
     func updateToken(_ accessToken: String, _ refreshToken: String) {
         self.accessToken = accessToken
         self.refreshToken = refreshToken
@@ -71,7 +76,7 @@ extension TokenManager {
     func clearAll() {
         self.accessToken = nil
         self.refreshToken = nil
-        self.idToken = nil
+        self.identityToken = nil
         self.platform = nil
     }
 }
