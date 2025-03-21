@@ -10,6 +10,7 @@ import Foundation
 import Moya
 
 struct Providers {
+    static let sigininProvider = NetworkProvider<AuthTargetType>(withAuth: false)
     static let homeProvider = NetworkProvider<HomeTargetType>(withAuth: false)
     static let fillingProvider = NetworkProvider<FillingTargetType>(withAuth: false)
     static let meetingRoomProvider = NetworkProvider<MeetingRoomTargetType>(withAuth: false)

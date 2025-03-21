@@ -27,4 +27,7 @@ extension APIConstants{
     static let hasTokenHeader = [contentType: applicationJSON,
                                         auth: Bearer + TokenManager.shared.accessTokenValue]
     static let hasContentTypeHeader = [contentType: applicationJSON]
+    
+    static let appleAuthHeader = [contentType: applicationJSON,
+                                         auth: TokenManager.shared.identityTokenValue]
 }
