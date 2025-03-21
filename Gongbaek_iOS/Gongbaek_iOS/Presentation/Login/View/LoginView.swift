@@ -10,6 +10,7 @@ import AuthenticationServices
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -33,6 +34,7 @@ struct LoginView: View {
                 
                 //애플 로그인 버튼
                 Button(action: {
+                    viewModel.navigationManager = navigationManager
                     viewModel.handleAppleSignIn()
                 }) {
                     HStack(alignment: .center, spacing: 8) {

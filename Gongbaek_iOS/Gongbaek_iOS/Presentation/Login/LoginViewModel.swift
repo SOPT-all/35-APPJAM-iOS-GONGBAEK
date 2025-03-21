@@ -23,7 +23,7 @@ class LoginViewModel: NSObject, ObservableObject {
     }
     
     // 로그인 서버 통신
-    func postAuthorizationCode() {
+    func postSignin() {
         let requestBody = LoginRequestDTO(platform: PlatformType.APPLE.rawValue)
         
         Providers.sigininProvider.request(
@@ -41,9 +41,11 @@ class LoginViewModel: NSObject, ObservableObject {
             } else {
                 print("🚨서버 통신 실패: \(response.message ?? "알 수 없음")")
             }
+            
+            self.navigationManager?.rootView = .signup
         }
     }
-
+    
 }
 
 // Apple 로그인 결과 처리
@@ -51,19 +53,19 @@ extension LoginViewModel: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
-
+        
         let identityToken = appleIDCredential.identityToken.flatMap { String(data: $0, encoding: .utf8) }
-
+        
         print("Apple 로그인 성공!!!")
         print("IdentityToken: \(String(describing: identityToken))")
         
         // Keychain에 로그인 정보 저장
         TokenManager.shared.updateIdentityToken(identityToken: identityToken)
         
-        //로그인
-        postAuthorizationCode()
+        //서버 통신 메서드 호출
+        postSignin()
     }
-
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("🚨Apple 로그인 실패: \(error.localizedDescription)")
     }
