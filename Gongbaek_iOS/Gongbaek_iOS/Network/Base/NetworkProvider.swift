@@ -19,22 +19,23 @@ class NetworkProvider<Provider : TargetType> : MoyaProvider<Provider> {
         self.request(target) { result in
             switch result {
             case .success(let response):
-                if (200..<300).contains(response.statusCode) {
-                    if let decodeData = try? JSONDecoder().decode(instance, from: response.data) {
-                        completion(decodeData)
-                    } else{
-                        print("🚨 decoding Error 발생")
-                        /// 알 수 없는 오류
-                        let errorResponse = BaseResponse<Model>(
-                            success: false,
-                            code: 0,
-                            message: "",
-                            data: nil
-                        )
-                        completion(errorResponse)
+                do {
+                    let decodedResponse = try JSONDecoder().decode(instance, from: response.data)
+                    
+                    // 토큰 만료 감지 Interceptor
+                    TokenInterceptor.shared.interceptResponse(response: decodedResponse) {
+                        self.request(target: target, instance: instance, completion: completion)
                     }
-                } else {
-                    print("🚨 Client Error")
+                    
+                } catch {
+                    print("🚨 Decoding Error: \(error.localizedDescription)")
+                    let errorResponse = BaseResponse<Model>(
+                        success: false,
+                        code: 0,
+                        message: "디코딩 실패",
+                        data: nil
+                    )
+                    completion(errorResponse)
                 }
                 
             case .failure(let error):
