@@ -26,11 +26,11 @@ class LoginViewModel: NSObject, ObservableObject {
     
     // 로그인 서버 통신
     func postSignin() {
-        let requestBody = LoginRequestDTO(platform: PlatformType.APPLE.rawValue)
+        let requestBody = PostSigninRequestDTO(platform: PlatformType.APPLE.rawValue)
         
         Providers.sigininProvider.request(
             target: .postSignin(requestBody: requestBody),
-            instance: BaseResponse<LoginResponseDTO>.self
+            instance: BaseResponse<PostSigninResponseDTO>.self
         ) { response in
             guard response.success, let data = response.data else {
                 print("🚨 서버 통신 실패: \(response.message ?? "알 수 없음")")
