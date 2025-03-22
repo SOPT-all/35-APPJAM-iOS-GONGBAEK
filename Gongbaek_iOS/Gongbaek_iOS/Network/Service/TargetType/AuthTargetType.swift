@@ -8,13 +8,16 @@
 import Moya
 
 enum AuthTargetType {
-    case postSignin(requestBody: LoginRequestDTO)
+    case postSignin(requestBody: PostSigninRequestDTO)
+    case patchReissue
 }
 
 extension AuthTargetType: BaseTargetType {
     var headers: Parameters? {
         switch self {
         case .postSignin:
+            return APIConstants.appleAuthHeader
+        case .patchReissue:
             return APIConstants.appleAuthHeader
         }
     }
@@ -23,6 +26,8 @@ extension AuthTargetType: BaseTargetType {
         switch self {
         case .postSignin:
             return "/api/v1/login"
+        case .patchReissue:
+            return "/api/v1/reissue/token"
         }
     }
     
@@ -30,6 +35,8 @@ extension AuthTargetType: BaseTargetType {
         switch self {
         case .postSignin:
             return .post
+        case .patchReissue:
+            return .patch
         }
     }
     
@@ -37,6 +44,8 @@ extension AuthTargetType: BaseTargetType {
         switch self {
         case .postSignin(let requstBody):
             return .requestJSONEncodable(requstBody)
+        case.patchReissue:
+            return .requestPlain
         }
     }
 }

@@ -69,6 +69,27 @@ extension TokenManager {
         self.refreshToken = refreshToken
     }
     
+    func reissueToken(completion: @escaping (Bool) -> Void) {
+        let refreshToken = self.refreshTokenValue
+        
+        Providers.sigininProvider.request(
+            target: .patchReissue,
+            instance: BaseResponse<PatchReissueResponse>.self
+        ) { response in
+            
+            guard response.success, let data = response.data else {
+                print("토큰 재발급 실패! \(response.message ?? "알 수 없음")")
+                completion(false)
+                return
+            }
+            
+            print("토큰 재발급 성공")
+            
+            // 키체인에 새로운 토큰 저장
+            TokenManager.shared.updateToken(data.accessToken, data.refreshToken)
+        }
+    }
+    
     func updateFcmToken(_ fcmToken: String) {
         self.fcmToken = fcmToken
     }
