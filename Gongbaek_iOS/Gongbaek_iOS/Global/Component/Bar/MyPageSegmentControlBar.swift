@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-enum MyFillingType: String, CaseIterable {
-    case register = "내가 모집한"
+enum MyMeetingType: String, CaseIterable {
     case apply = "내가 신청한"
+    case register = "내가 모집한"
 }
 
-enum MyFillingCategory: String, CaseIterable {
-    case register = "REGISTER"
+enum MyMeetingCategory: String, CaseIterable {
     case apply = "APPLY"
+    case register = "REGISTER"
 }
 
-struct MyFillSegmentControlBar: View {
-    @ObservedObject var viewModel: MyFillingViewModel
+struct MyPageSegmentControlBar: View {
+    @ObservedObject var viewModel: MyPageViewModel
     
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                ForEach(MyFillingCategory.allCases, id: \.self) { category in
+                ForEach(MyMeetingCategory.allCases, id: \.self) { category in
                     let isSelected = viewModel.selectedCategory == category
                     
                     Button {
@@ -32,10 +32,9 @@ struct MyFillSegmentControlBar: View {
                     } label: {
                         ZStack(alignment: .bottom) {
                             Text(category == .register ? "내가 모집한" : "내가 신청한") 
-                                .pretendardFont(.body1_m_16)
+                                .pretendardFont(isSelected ? .body1_b_16 : .body1_m_16)
                                 .foregroundColor(isSelected ? .gray10 : .gray05)
                                 .padding(.vertical, 15)
-                            
                             isSelected ?
                             Color(.gray09).frame(height: 2) :
                             Color(.gray02).frame(height: 1)
