@@ -53,7 +53,7 @@ extension TabBarState {
         case .myFilling: Color.gray02
         case .home: HomeView()
         case .timetable: Color.gray04
-        case .myPage: MyFillingView(viewModel: MyFillingViewModel())
+        case .myPage: MyPageView(viewModel: MyPageViewModel())
         }
     }
 }
