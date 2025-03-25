@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct MyFillingView: View {
-    @StateObject var viewModel = MyFillingViewModel()
+struct MyPageView: View {
+    @StateObject var viewModel = MyPageViewModel()
     
     var body: some View {
         ZStack {
-            MyFillSegmentControlBar(viewModel: viewModel)
+            VStack(spacing: 0) {
+                MyProfile()
+                Rectangle()
+                    .fill(.gray01)
+                    .frame(height: 8)
+                MyFillSegmentControlBar(viewModel: viewModel)
+            }
             
             if viewModel.showAlert {
                 FullErrorView(onTapRetryButton: {
@@ -21,7 +27,7 @@ struct MyFillingView: View {
                 })
             }
         }
-        .customNavigationBar(title: "나의 채움")
+        .customNavigationBar(title: "마이페이지")
         .onAppear {
             viewModel.getMeetings()
         }
@@ -29,5 +35,5 @@ struct MyFillingView: View {
 }
 
 #Preview {
-    MyFillingView(viewModel: MyFillingViewModel())
+    MyPageView(viewModel: MyPageViewModel())
 }
