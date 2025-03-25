@@ -17,7 +17,7 @@ struct MyPageView: View {
                 Rectangle()
                     .fill(.gray01)
                     .frame(height: 8)
-                MyFillSegmentControlBar(viewModel: viewModel)
+                MyPageSegmentControlBar(viewModel: viewModel)
             }
             
             if viewModel.showAlert {

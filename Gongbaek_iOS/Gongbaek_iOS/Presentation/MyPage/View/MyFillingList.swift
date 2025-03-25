@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyFillingList: View {
-    @ObservedObject var viewModel = MyFillingViewModel()
+    @ObservedObject var viewModel = MyPageViewModel()
     
     var body: some View {
         ScrollView {

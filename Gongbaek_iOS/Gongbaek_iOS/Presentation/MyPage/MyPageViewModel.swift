@@ -12,10 +12,10 @@ struct myFillStatus {
     let status: Bool
 }
 
-class MyFillingViewModel: ObservableObject {
+class MyPageViewModel: ObservableObject {
     @Published var activeMeetings: [Meeting] = []
     @Published var endedMeetings: [Meeting] = []
-    @Published var selectedCategory: MyFillingCategory = .register
+    @Published var selectedCategory: MyMeetingCategory = .apply
     
     @Published var isActiveEmpty: Bool = false
     @Published var isEndedEmpty: Bool = false

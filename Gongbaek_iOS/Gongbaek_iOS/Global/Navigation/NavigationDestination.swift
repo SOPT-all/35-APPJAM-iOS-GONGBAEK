@@ -38,7 +38,7 @@ enum MyPageDestination: Hashable {
     func view() -> some View {
         switch self {
         case .myPage:
-            MyFillingView(viewModel: MyFillingViewModel())
+            MyPageView(viewModel: MyPageViewModel())
         }
     }
 }
